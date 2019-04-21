@@ -12,11 +12,13 @@ public:
 	FFT_calculator();
 	~FFT_calculator();
 
-	void fft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out);
-	void ifft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out);
+	static void fft_init();
+
+	static void fft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out);
+	static void ifft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out);
 
 private:
-	std::complex<float> twiddleFactors[N_FFT_MAX / 2 + 1];
+	static std::complex<float> twiddleFactors[N_FFT_MAX / 2 + 1];
 	const static unsigned int bitReverseLUT[N_FFT_MAX];
 };
 

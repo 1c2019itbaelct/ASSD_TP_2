@@ -7,21 +7,25 @@
 
 using namespace std;
 
- #define DEBUG_FFT
+// #define DEBUG_FFT
 
 FFT_calculator::FFT_calculator()
 {
-	// Llenar todos los W_N. Hay un valor extra
-	for (int i = 0; i < N_FFT_MAX/2 + 1; i++)
-	{
-		twiddleFactors[i] = complex<float>(cos(2*M_PI / N_FFT_MAX * i), -sin((2*M_PI / N_FFT_MAX * i)));
-	}
 }
 
 
 FFT_calculator::~FFT_calculator()
 {
 	//Destruir los W
+}
+
+void FFT_calculator::fft_init()
+{
+	// Llenar todos los W_N. Hay un valor extra
+	for (int i = 0; i < N_FFT_MAX / 2 + 1; i++)
+	{
+		twiddleFactors[i] = complex<float>(cos(2 * M_PI / N_FFT_MAX * i), -sin((2 * M_PI / N_FFT_MAX * i)));
+	}
 }
 
 void FFT_calculator::fft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out)
@@ -93,7 +97,6 @@ void FFT_calculator::fft(std::vector<std::complex<float>>& in, std::vector<std::
 
 #endif // DEBUG_FFT
 
-	cout << endl << endl << "BIT REVERSE:" << endl;
 
 	for (int i = 0; i < N/2; i++ )
 	{
@@ -183,8 +186,6 @@ void FFT_calculator::ifft(std::vector<std::complex<float>>& in, std::vector<std:
 
 #endif // DEBUG_FFT
 
-	cout << endl << endl << "BIT REVERSE:" << endl;
-
 	for (int i = 0; i < N; i++ )
 	{
 		unsigned int brIndex = bitReverseLUT[i];
@@ -203,74 +204,9 @@ void FFT_calculator::ifft(std::vector<std::complex<float>>& in, std::vector<std:
 	{
 		out[i] /= N;
 	}
-
-	/*
-	out = in;
-
-	int i = 1;	//TODO: borrar, DEBUG.
-
-	int logn = (int)log2(N_FFT); //log en base 2 de la cantidad de muestras TODO: obtener apartir del input
-
-	// butterflyWingSpan_0: distancia inicial entre wings (nodos) de una misma butterfly
-	int butterflyWingSpan_0 = (logn ? (1 << (logn - 1)) : 0);	//Si hay una sola muestra, poner en 0
-
-	// twiddleFactorIndexSep: separacion entre los indices de los twiddle factors correspondientes
-	// a butterflies calculadas consecutivamente. Se duplica al aumentar la etapa.
-	int twiddleFactorIndexSep = 1;
-
-	// twiddleFactorIndexMax: maximo indice de twiddle factors. No se modifica al aumentar la etapa.
-	int twiddleFactorIndexMax = (butterflyWingSpan_0 ? butterflyWingSpan_0 - 1 : 0);	//Si hay una sola muestra, poner en 0
-
-	//twiddleFactorIndex: indice del twiddle factor.
-	int twiddleFactorIndex = 0;
-
-	// Identifico las etapas por la distancia entre los nodos de la misma butterfly (butterflyWingSpan). 
-	// Mientras avanzo de etapa, butterflyWingSpan se divide por dos y kaleidoscopeCount se duplica.
-	// En la ultima etapa, esta distancia es 1
-	for (int butterflyWingSpan = butterflyWingSpan_0;
-		butterflyWingSpan;
-		butterflyWingSpan >>= 1, twiddleFactorIndexSep <<= 1, twiddleFactorIndex = 0)
-	{
-		cout << "***************" << endl;
-		cout << "Etapa " << i << ":" << endl;
-		cout << "wing span = " << butterflyWingSpan << endl << endl;
-
-		// Cada butterfly tiene dos wings: la top (butterflyTopWing), que tiene indice menor dentro 
-		// del arreglo, y la bottom (butterflyBottomWing), que tiene indice mayor dentro del arreglo.
-		// butterflyBottomWing = butterflyTopWing + butterflyWingSpan
-		// Si se recorren todas las wings superiores en orden, la ultima esta en la posicion
-		// 2*butterflyWingSpan_0 - butterflyWingSpan - 1
-
-		// Busco la top wing de cada butterfly. Con eso mas el span obtengo la bottom wing.
-		// Una vez que tengo las dos wings hago los calculos
-		for (int butterflyTopWing = 0;
-			butterflyTopWing < (butterflyWingSpan_0 << 1) - butterflyWingSpan;
-			butterflyTopWing = (++butterflyTopWing) + (butterflyTopWing & butterflyWingSpan),
-			twiddleFactorIndex = (twiddleFactorIndex + twiddleFactorIndexSep) & twiddleFactorIndexMax) //TODO: explicar
-		{
-			cout << endl << "Nueva mariposa:" << endl;
-			cout << "top: " << bitset<8>(butterflyTopWing) << "\t" << butterflyTopWing << endl;
-			cout << "bot: " << bitset<8>(butterflyTopWing + butterflyWingSpan) << "\t" << butterflyTopWing + butterflyWingSpan << endl;
-			cout << "Tfi: " << bitset<8>(twiddleFactorIndex) << "\t" << twiddleFactorIndex << endl << endl;
-
-			cout << "Top Wing Input: " << out[butterflyTopWing] << endl;
-			cout << "Bot Wing Input: " << out[butterflyTopWing + butterflyWingSpan] << endl;
-			cout << "Twiddle Factor:   " << -twiddleFactors[twiddleFactorIndexMax - twiddleFactorIndex + 1];
-			cout << " = " << abs(-twiddleFactors[twiddleFactorIndexMax - twiddleFactorIndex + 1]) << " < " << arg(-twiddleFactors[twiddleFactorIndexMax - twiddleFactorIndex + 1]) / M_PI << "*PI" << endl;
-			
-			complex<float> topWingContent = out[butterflyTopWing];	//hago backup para no pisar
-			out[butterflyTopWing] = topWingContent + out[butterflyTopWing + butterflyWingSpan];
-			out[butterflyTopWing + butterflyWingSpan] = -twiddleFactors[twiddleFactorIndexMax - twiddleFactorIndex + 1] * (topWingContent - out[butterflyTopWing + butterflyWingSpan]);
-
-			cout << "Top Wing Output:  " << out[butterflyTopWing] << endl;
-			cout << "Bot Wing Output:  " << out[butterflyTopWing + butterflyWingSpan] << endl;
-
-		}
-		i++; //TODO: borrar, DEBUG. Contador de etapas para hacer cout.
-	}
-	bitReverse(out);
-	*/
 }
+
+std::complex<float> FFT_calculator::twiddleFactors[N_FFT_MAX / 2 + 1] = {};
 
 //TODO: con media tabla me alcanza?
 const unsigned int FFT_calculator::bitReverseLUT[N_FFT_MAX] =
