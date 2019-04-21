@@ -3,11 +3,12 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 #include <iostream>
+#include <algorithm>
 
 #include "FFT_calculator.h"
 
 // #define DEBUG_ROBOT
-
+// #define ANDROID_VOICE
 using namespace std;
 
 float hanning_window_factor(int i, int n_fft);
@@ -40,22 +41,28 @@ void robot_voice(vector<complex<float>>& in, vector<complex<float>>& out, int n_
 			aux[sample_offset] = in[first_window_sample + sample_offset] * hanning_window_factor(sample_offset, n_fft);
 		}
 		FFT_calculator::fft(aux, aux);
+		aux.resize(n_fft / 2);	// Elimino las muestras de la mitad superior
+		aux.resize(n_fft, complex<float>(0, 0));	// Las relleno con 0 para que el vector tenga longitud n_fft
+		for_each(aux.begin(), aux.end(), [](complex<float> sample) { sample *= 2; });	// Duplico para "compensar" las muestras que puse en 0 y o tener perdida de potencia
+
 		for(int sample = 0; sample < n_fft; sample++)
 		{
+#ifndef ANDROID_VOICE
 			//Fuerzo a 0 la fase:
-			aux[sample] = complex<float>(std::abs(aux[sample]),0);
+			aux[sample] = complex<float>(std::abs(aux[sample]), 0);
+#endif // !ANDROID_VOICE
 		}
 		FFT_calculator::ifft(aux,aux);
 #ifdef DEBUG_ROBOT
 		cout << " Guardo en las posiciones: " << endl;
-#endif //DEBUG_ROBOT
+#endif // !DEBUG_ROBOT
 
 		for(int sample_offset = 0; sample_offset < n_fft; sample_offset++)
 		{
 #ifdef DEBUG_ROBOT
 		cout << first_window_sample + sample_offset << endl;
 #endif //DEBUG_ROBOT
-		out[first_window_sample + sample_offset] += aux[sample_offset] *hanning_window_factor(sample_offset, n_fft);
+		out[first_window_sample + sample_offset] += aux[sample_offset] * hanning_window_factor(sample_offset, n_fft);
 		}
 	}
 }
