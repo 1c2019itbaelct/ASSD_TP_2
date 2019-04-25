@@ -1,0 +1,58 @@
+import mido as md
+import array
+
+class myNote:
+    def __init__(self,note,velocity,ti):
+        self.note=note
+        self.tInicial=ti
+        self.tFinal=0
+        self.dt=0
+        self.velocity=velocity
+
+    def calcDt(self):
+        self.dt=self.tFinal -self.tInicial
+
+
+
+#recive un track, y devuelve un vector de notas
+def trackParser (track):
+    openNotes=[]
+    closedNotes=[]
+    currentTime=0
+    for x in track:
+        currentTime=currentTime+x.time
+        if(x.type=='note_on'):
+            if (x.velocity == 0):#si velocity es cero es igual a un note off
+
+                for y in openNotes:
+                    if(y.note==x.note):
+                        temp=myNote(y.note,y.velocity,y.tInicial)
+                        temp.tFinal=currentTime
+                        temp.calcDt()
+                        closedNotes.append(temp)
+                        openNotes.remove(y)
+            else:
+
+                openNotes.append(myNote(x.note,x.velocity,currentTime))
+        elif(x.type=='note_off'):
+            for y in openNotes:
+                if (y.note == x.note):
+                    temp = myNote(y.note, y.velocity, y.tInicial)
+                    temp.tFinal = currentTime
+                    temp.calcDt()
+                    closedNotes.append(temp)
+                    openNotes.remove(y)
+
+
+    return closedNotes
+
+
+
+
+file =md.MidiFile('test.mid')
+trackVector=file.tracks
+track=trackVector[1]
+
+parsedTrack=trackParser(trackVector[1])
+
+print('hola')
