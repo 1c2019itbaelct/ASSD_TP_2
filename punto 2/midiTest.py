@@ -2,6 +2,7 @@ import mido as md
 import array
 import numpy as np
 from punto4 import clarinete
+import sounddevice as sd
 class myNote:
     def __init__(self,note,velocity,ti):
         self.note=note
@@ -62,10 +63,17 @@ songSize=(md.tick2second(parsedTrack[len(parsedTrack)-1].tFinal,file.ticks_per_b
 song=np.zeros(int(songSize*1.5))
 for x in parsedTrack:
     ti =md.tick2second(x.tInicial,file.ticks_per_beat,300000)
-    tf=md.tick2second(x.tInicial,file.ticks_per_beat,300000)
+    tf=md.tick2second(x.tFinal,file.ticks_per_beat,300000)
+
     dt=tf-ti
-    #fragmento=clarinete(noteToFrec(x.note),1,4,dt,Fs)
-    song[int(ti*Fs):int(tf*Fs)]=song[int(ti*Fs):int(tf*Fs)]#+fragmento
+
+    fragmento=clarinete(noteToFrec(x.note),1,4,dt,Fs)
+    #print((int(tf*Fs)-int(ti*Fs))-len(fragmento))
+    #print(fragmento)
+
+    song[int(ti*Fs):int(ti*Fs)+len(fragmento)]=song[int(ti*Fs):int(ti*Fs)+len(fragmento)]+fragmento
 
 
+sd.play(song,Fs)
+sd.wait()
 print('hola')
