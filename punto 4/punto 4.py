@@ -37,7 +37,7 @@ def clarinete (f0,A0,I0,duracion,fsampl):
     ts = pyl.arange(0,duracion,1/fsampl) #creo el espacio temporal
     
 
-    [A_t,I_t] = clarinet_funct(0.1,0.35,0.05,fsampl,A0,I0)
+    [A_t,I_t] = clarinet_funct(0.15*duracion,0.75*duracion,0.1*duracion,fsampl,A0,I0)
     ts =ts[:len(A_t)] #pongo todos los tiempos con la misma cant de puntos (Tengo que ver de hacerlo mejor)
     ym= pyl.sin(2*pyl.pi*fm*ts)     #función modulada
     #Señal FM final con sus componentes que varían en el tiempo
@@ -47,7 +47,7 @@ def clarinete (f0,A0,I0,duracion,fsampl):
 
 def campana(f0,A0,I0,duracion,fsampl):
     ts = pyl.arange(0,duracion,1/fsampl) #creo el espacio temporal
-    Tao = 0.6
+    Tao = duracion/3
     fc = f0
     fm = 2*f0
 
@@ -66,7 +66,7 @@ def violin(f0,A0,I0,duracion,fsampl):
     ts = pyl.arange(0,duracion,1/fsampl) #creo el espacio temporal
     
 
-    [A_t,I_t] = clarinet_funct(0.1,0.35,0.05,fsampl,A0,I0) #el ataque es igual
+    [A_t,I_t] = clarinet_funct(0.2*duracion,0.7*duracion,0.1*duracion,fsampl,A0,I0) #el ataque es igual
     ts =ts[:len(A_t)] #pongo todos los tiempos con la misma cant de puntos (Tengo que ver de hacerlo mejor)
     ym= pyl.sin(2*pyl.pi*fm*ts)     #función modulada
     #Señal FM final con sus componentes que varían en el tiempo
@@ -74,8 +74,11 @@ def violin(f0,A0,I0,duracion,fsampl):
     return yc
 
 
+#Mi banco de pruebas para escupir wavs
+#
 
+#test = np.concatenate((clarinete(261.626,2,2,1,44100),clarinete(293.625,2,2,1,44100),clarinete(329.628,2,2,1,44100),clarinete(349.228,2,2,1,44100),clarinete(391.995,2,2,1,44100),clarinete(440,2,2,1,44100),clarinete(493.883,2,2,1,44100),clarinete(523.251,2,2,1,44100)))
 #escupe archivos wav para escuchar sonidos
-scipy.io.wavfile.write('testclarinete.wav',8000,clarinete(330,2,2,2,10000))
-scipy.io.wavfile.write('testbell.wav',8000,campana(330,1,5,2,8000))
-scipy.io.wavfile.write('testviolin.wav',8000,violin(330,2,2,5,10000))
+#scipy.io.wavfile.write('testclarinete.wav',44100,test)
+#scipy.io.wavfile.write('testbell.wav',44100,campana(330,1,5,10,44100))
+#scipy.io.wavfile.write('testviolin.wav',44100,violin(330,2,2,5,44100))
