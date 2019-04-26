@@ -1,7 +1,7 @@
 import mido as md
 import array
 import numpy as np
-from punto4 import clarinete
+from punto4 import campana
 import sounddevice as sd
 class myNote:
     def __init__(self,note,velocity,ti):
@@ -50,7 +50,13 @@ def trackParser (track):
 
 def noteToFrec(note):
     return ((2**((note-69)/12)))*440
+
+
+
+
 Fs=41100
+
+
 
 
 
@@ -67,7 +73,7 @@ for x in parsedTrack:
 
     dt=tf-ti
 
-    fragmento=clarinete(noteToFrec(x.note),1,4,dt,Fs)
+    fragmento=campana(noteToFrec(x.note),1,4,dt,Fs)
     #print((int(tf*Fs)-int(ti*Fs))-len(fragmento))
     #print(fragmento)
 
