@@ -1,3 +1,37 @@
 \documentclass[../ASSD_TP2.tex]{subfiles}
 \begin{document}
+\section*{Síntesis de archivo MIDI}
+MIDI(Musical Instrument Digital Interface), tal como su nombre lo indica es un protocolo de comunicacion, orientado a los instrumentos musicales y sintetizadores. Un Archivo MIDI contiene información sobre el instrumento que se esta usando, cuando se toca determinada nota y con que intensidad se lo utiliza. 
+\subsection*{Esquema básico de archivo MIDI}
+La estructura de estos archivos esta compuesto de la siguiente manera:
+\begin{enumerate}
+\item Cansion
+	\begin{enumerate}
+		\item tracks(cada track representa un instrumento)
+			\begin{enumerate}
+				\item message (Cada mensaje es una acción o configuración que realiza el instrumento)
+					\begin{enumerate}
+						\item metadata (informacion relevante de cada mensaje)
+					\end{enumerate}						
+			\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+Se utilizo la biblioteca mido para python, que realiza el parseo del archivo MIDI, devolviendo un diccionario de tracks.
+\subsection*{Mensages relevantes del archivo MIDI}
+
+Hay dos mensajes que se utilizaron para sintetizar el archivo MIDI, NOTE\_ON y NOTE\_OFF. Tal como su nombre lo indica, los mensajes marcan el comienzo y fin de cada nota. Ambos mensajes comparten la misma metadata:
+\begin{itemize}
+\item tiempo(cuando se realiza la acción)
+\item note 
+\item velocity (intensidad de la nota)
+
+\end{itemize}
+El equivalente al mensaje de NOTE\_OFF es el NOTE\_ON con velocity 0.
+
+\subsection*{Programa implementado}
+
+
+
+
+
 \end{document}

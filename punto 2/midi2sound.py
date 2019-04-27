@@ -5,6 +5,7 @@ from punto4 import campana
 from punto4 import clarinete
 from punto4 import violin
 import sounddevice as sd
+import matplotlib.pyplot as plt
 class myNote:
     def __init__(self,note,velocity,ti):
         self.note=note
@@ -70,9 +71,9 @@ def trackGenerator(parsedTrack,instrumento,Fs):
 
 def sintetizador(frec,dt,Fs,instrumento):
     if(instrumento=='campana'):
-       data=campana(frec, 0.25, 1, dt, Fs)
+       data=campana(frec, 1, 1, dt, Fs)
     elif(instrumento=='clarinete'):
-        data = clarinete(frec, 0.25, 1, dt, Fs)
+        data = clarinete(frec, 2, 4, dt, Fs)
     else:
         data=violin(frec, 1, 1, dt, Fs)
     return data
@@ -107,12 +108,17 @@ parsedTrack2=trackParser(trackVector[2],file.ticks_per_beat,(dataTrack[5]).tempo
 sound1=trackGenerator(parsedTrack,'clarinete',Fs)
 sound2=trackGenerator(parsedTrack2,'campana',Fs)
 sund3=np.zeros(min(len(sound1),len(sound2)))
+m2=max(abs(sound2.max()),abs(sound2.min()))
+m1=max(abs(sound1.max()),abs(sound1.min()))
 for i in range(0,len(sund3)-1):
-    sund3[i]=sound1[i]+sound2[i]
+    sund3[i]=sound1[i]/m1+sound2[i]/m2
 
 sund3=sund3/max(abs(sund3.max()),abs(sund3.min()))
 print(sund3.max())
 print(sund3.min())
+
+plt.plot(np.arange(0,len(sund3)*(1/Fs),1/Fs),sund3)
+plt.show()
 sd.play(sund3,Fs)
 sd.wait()
 print('hola')
