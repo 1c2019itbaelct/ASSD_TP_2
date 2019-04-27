@@ -29,6 +29,12 @@ Hay dos mensajes que se utilizaron para sintetizar el archivo MIDI, NOTE\_ON y N
 El equivalente al mensaje de NOTE\_OFF es el NOTE\_ON con velocity 0.
 
 \subsection*{Programa implementado}
+El problema a resolver es la sintetizacion de un solo track, debido a que un MIDI esta compuesto por tracks, se sintetizan de a uno y posteriormente se suman.
+\par El primer paso es armar la linea de tiempo correspondiente a al track, es decir cuendo se ejecuto cada nota y cuanto duro. Para ello se utilizo la función $trackParser (track,tickPerBeat,tempo)$, recive como parametros el track, los tickPerBeat y el temo, devolviendo un arreglo de notas. Cada nota tiene su frecuencia, su tiempo de comiezo y de fien en segundos.
+Despues resta asignar a cada nota el instrumento, para ello se utiliza la función $trackGenerator(parsedTrack,instrumento,Fs)$, recive como parametro el vector de notas, el instrumento deseado y la frecuencia de sampleo, devolviendo el track sintetizado con el instrumento deseado.
+\par En cuanto a los instrumentos, se utilizaron los desarrollados en los otros  puntos del informe.
+
+\subsection*{Archivos sintetizados}
 
 
 
