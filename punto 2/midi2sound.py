@@ -61,13 +61,15 @@ def noteToFrec(note):
 def trackGenerator(parsedTrack,instrumento,Fs):
     songSize=parsedTrack[len(parsedTrack)-1].tFinal*Fs
     song=np.zeros(int(songSize*1.5))
+    length=0
     for x in parsedTrack:
         ti = x.tInicial
         tf = x.tFinal
         dt = tf - ti
         fragmento =sintetizador(noteToFrec(x.note), dt, Fs, instrumento)
-        song[int(ti * Fs):int(ti * Fs) + len(fragmento)] = song[int(ti * Fs):int(ti * Fs) + len(fragmento)] + fragmento
-    return song
+        length=int(ti * Fs) + len(fragmento)
+        song[int(ti * Fs):length] = song[int(ti * Fs):length] + fragmento
+    return song[0:length-1]
 
 def sintetizador(frec,dt,Fs,instrumento):
     if(instrumento=='campana'):
@@ -85,28 +87,16 @@ def sintetizador(frec,dt,Fs,instrumento):
 
 
 Fs=41100
-file = md.MidiFile('test.mid')
+file = md.MidiFile('concierto.mid')
 trackVector = file.tracks
-track = trackVector[1]
+track = trackVector[3]
 dataTrack=file.tracks[0]
-parsedTrack = trackParser(track,file.ticks_per_beat,(dataTrack[5]).tempo)
-parsedTrack2=trackParser(trackVector[2],file.ticks_per_beat,(dataTrack[5]).tempo)
-#songSize=(md.tick2second(parsedTrack[len(parsedTrack)-1].tFinal,file.ticks_per_beat,300000))*Fs
-#song=np.zeros(int(songSize*1.5))
-#for x in parsedTrack:
-#    ti =md.tick2second(x.tInicial,file.ticks_per_beat,300000)
-#    tf=md.tick2second(x.tFinal,file.ticks_per_beat,300000)
+parsedTrack = trackParser(track,file.ticks_per_beat,(dataTrack[2]).tempo)
+parsedTrack2=trackParser(trackVector[6],file.ticks_per_beat,(dataTrack[2]).tempo)
 
-#    dt=tf-ti
 
-#    fragmento=campana(noteToFrec(x.note),1,4,dt,Fs)
-    #print((int(tf*Fs)-int(ti*Fs))-len(fragmento))
-    #print(fragmento)
-
- #   song[int(ti*Fs):int(ti*Fs)+len(fragmento)]=song[int(ti*Fs):int(ti*Fs)+len(fragmento)]+fragmento
-
-sound1=trackGenerator(parsedTrack,'clarinete',Fs)
-sound2=trackGenerator(parsedTrack2,'campana',Fs)
+sound1=trackGenerator(parsedTrack,'campana',Fs)
+sound2=trackGenerator(parsedTrack2,'violin',Fs)
 sund3=np.zeros(min(len(sound1),len(sound2)))
 m2=max(abs(sound2.max()),abs(sound2.min()))
 m1=max(abs(sound1.max()),abs(sound1.min()))
@@ -117,8 +107,8 @@ sund3=sund3/max(abs(sund3.max()),abs(sund3.min()))
 print(sund3.max())
 print(sund3.min())
 
-plt.plot(np.arange(0,len(sund3)*(1/Fs),1/Fs),sund3)
-plt.show()
-sd.play(sund3,Fs)
+#plt.plot(np.arange(0,len(sund3)*(1/Fs),1/Fs),sund3)
+#plt.show()
+sd.play(sound1,Fs)
 sd.wait()
 print('hola')
