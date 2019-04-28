@@ -24,9 +24,53 @@ El principio de funcionamiento del algoritmo, es tomar segmentos del fragmento o
 
 \begin{figure}[H]
   \centering
-   \includegraphics[width=0.9\textwidth]{figures/ola.png}
+   \includegraphics[width=0.5\textwidth]{figures/ola.png}
   \caption{Ejemplo del funcionamiento del algoritmo, imagen obtenida de Driedger Jonathan TSM Master Thesis}
 \end{figure}
+El primer paso del algoritmo es fraccionar el segmento original, a cada fragmento se le aplica una ventana de tipo Hann. Posteriormente se los superponen el el nuevo fragmento. El estiramiento lo produce una función que convierte las posiciones de un segmento al otro.
+\par Matemáticamente el algoritmo se puede describir de la siguiente manera:
+\begin{equation}
+y(n)=\frac{\sum_{k=1}^{len(\sigma)} \omega(n - \gamma (k)) x(n-\gamma (k) + \sigma (k))}{\sum_{k=1}^{len(\sigma)}\omega(n - \gamma (k))}
+\end{equation}
+Donde $\sigma$ es un vector de indices correspondiente a la entrada, $\gamma$ es un vector de indices correspondiente a la salida. La función que los vincula es $\tau$, dicha función convierte los indices en el intervalo de entrada al intervalo de salida.
+$\omega$ es el vector que contiene los valores de la ventana en cada punto, el ancho de la ventana $\omega l$ tiene que ser mas grande que el periodo de la se\~nal de menor frecuencia.
+
+\par El algoritmo funciona correctamente para se\~nales cuya naturaleza sea no armónica, por ejemplo el habla. Sin embargo para se\~nales armónicas introduce modulación, y saltos de fase, a los desfajases producidos en el overlapping de las muestras.  
+
+\begin{figure}[H]
+ \centering
+  \subfloat[Tiempo]{
+   %\label{f:ejaesc}
+    \includegraphics[width=0.48\textwidth]{figures/x2.png}}
+  \subfloat[Espectro]{
+   %\label{f:ejaimp}
+    \includegraphics[width=0.48\textwidth]{figures/fftx2.png}}
+
+ \caption{Resultados del algoritmo, factor de escalamiento 2, se\~nal senoidal de 20 Hz. La se\~nal naranja corresponde a la salida y la azul a la entrada}
+ %\label{f:eja}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+  \subfloat[Tiempo]{
+   %\label{f:ejaesc}
+    \includegraphics[width=0.48\textwidth]{figures/xmit.png}}
+  \subfloat[Espectro]{
+   %\label{f:ejaimp}
+    \includegraphics[width=0.48\textwidth]{figures/fftxmit.png}}
+
+ \caption{Resultados del algoritmo, factor de escalamiento $\frac{1}{2}$, se\~nal senoidal de 20 Hz. La se\~nal naranja corresponde a la salida y la azul a la entrada}
+ %\label{f:eja}
+\end{figure}
+
+Tal como era des esperarse el algoritmo introduce modulacion a se\~nales armonicas, este fenomeno se ve realizando un acercamiento a la FFT
+
+\begin{figure}[H]
+  \centering
+   \includegraphics[width=0.5\textwidth]{figures/zoom.png}
+  \caption{Acercamiento de la FFT, factor de escalamiento 2}
+\end{figure}
+
 \subsubsection*{WSOLA}
 
 \subsection*{PSOLA}
