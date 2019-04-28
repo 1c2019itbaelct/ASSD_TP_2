@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// #define DEBUG_FFT
+//#define DEBUG_FFT
 
 FFT_calculator::FFT_calculator()
 {
@@ -30,6 +30,7 @@ void FFT_calculator::fft_init()
 
 void FFT_calculator::fft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out)
 {	
+
 	out = in;
 	if( in.size() < 2) { return; } // Si no hay minimo dos muestras, no hay nada mas que hacer.
 
@@ -38,6 +39,16 @@ void FFT_calculator::fft(std::vector<std::complex<float>>& in, std::vector<std::
 
 	// N: cantidad de muestras que se analizan
 	int N = 1 << logn;
+
+#ifdef DEBUG_FFT
+	cout << endl << endl << "Entrada:" << endl;
+	for (int i = 0; i < N; i++)
+	{
+		cout << "x(" << i << ") = " << in[i] << endl;
+	}
+	cout << endl;
+#endif // DEBUG_FFT
+
 
 	// butterflyWingSpan_0: distancia inicial entre wings (nodos) de una misma butterfly ( = N/2 = (2^logn)/2 = 2^(logn-1) )
 	int butterflyWingSpan_0 = N >> 1;
@@ -98,7 +109,7 @@ void FFT_calculator::fft(std::vector<std::complex<float>>& in, std::vector<std::
 #endif // DEBUG_FFT
 
 
-	for (int i = 0; i < N/2; i++ )
+	for (int i = 0; i < N; i++ )
 	{
 		unsigned int brIndex = bitReverseLUT[i];
 		brIndex >>= (LOG_N_FFT_MAX - logn);
@@ -113,7 +124,14 @@ void FFT_calculator::fft(std::vector<std::complex<float>>& in, std::vector<std::
 		cout << "BR:" << bitset<12>(i) << " " << bitset<12>(brIndex) << endl;
 #endif // DEBUG_FFT
 	}
-	
+#ifdef DEBUG_FFT
+	cout << endl << endl << "Salida:" << endl;
+	for (int i = 0; i < N; i++)
+	{
+		cout << "x(" << i << ") = " << out[i] << endl;
+	}
+	cout << endl;
+#endif // DEBUG_FFT
 }
 
 
@@ -165,8 +183,10 @@ void FFT_calculator::ifft(std::vector<std::complex<float>>& in, std::vector<std:
 		{
 #ifdef DEBUG_FFT
 			cout << endl << "Nueva mariposa:" << endl;
-			cout << "top: " << bitset<8>(butterflyTopWing) << "\t" << butterflyTopWing << endl;
-			cout << "bot: " << bitset<8>(butterflyTopWing + butterflyWingSpan) << "\t" << butterflyTopWing + butterflyWingSpan << endl;
+			cout << "top index: " << bitset<8>(butterflyTopWing) << "\t" << butterflyTopWing << endl;
+			cout << "bot index: " << bitset<8>(butterflyTopWing + butterflyWingSpan) << "\t" << butterflyTopWing + butterflyWingSpan << endl;
+			cout << "top content: " << out[butterflyTopWing] << endl;
+			cout << "bot content: " << in[butterflyTopWing + butterflyWingSpan] << endl;
 #endif
 			complex<float> topWingContent = out[butterflyTopWing];	//hago backup para no pisar
 			out[butterflyTopWing] = topWingContent + out[butterflyTopWing + butterflyWingSpan];
@@ -195,10 +215,10 @@ void FFT_calculator::ifft(std::vector<std::complex<float>>& in, std::vector<std:
 			complex<float> backup = out[i];
 			out[i] = out[brIndex];
 			out[brIndex] = backup;
-		}
 #ifdef DEBUG_FFT
-		cout << "BR:" << bitset<12>(i) << " " << bitset<12>(brIndex) << endl;
+			cout << "BR:" << bitset<12>(i) << " " << bitset<12>(brIndex) << endl;
 #endif // DEBUG_FFT
+		}
 	}
 	for (int i = 0; i < N; i++)
 	{
