@@ -1,0 +1,43 @@
+\documentclass[../ASSD_TP2.tex]{subfiles}
+\begin{document}
+\section*{Síntesis de archivo MIDI}
+MIDI(Musical Instrument Digital Interface), tal como su nombre lo indica es un protocolo de comunicacion, orientado a los instrumentos musicales y sintetizadores. Un Archivo MIDI contiene información sobre el instrumento que se esta usando, cuando se toca determinada nota y con que intensidad se lo utiliza. 
+\subsection*{Esquema básico de archivo MIDI}
+La estructura de estos archivos esta compuesto de la siguiente manera:
+\begin{enumerate}
+\item Cansion
+	\begin{enumerate}
+		\item tracks(cada track representa un instrumento)
+			\begin{enumerate}
+				\item message (Cada mensaje es una acción o configuración que realiza el instrumento)
+					\begin{enumerate}
+						\item metadata (informacion relevante de cada mensaje)
+					\end{enumerate}						
+			\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+Se utilizo la biblioteca mido para python, que realiza el parseo del archivo MIDI, devolviendo un diccionario de tracks.
+\subsection*{Mensages relevantes del archivo MIDI}
+
+Hay dos mensajes que se utilizaron para sintetizar el archivo MIDI, NOTE\_ON y NOTE\_OFF. Tal como su nombre lo indica, los mensajes marcan el comienzo y fin de cada nota. Ambos mensajes comparten la misma metadata:
+\begin{itemize}
+\item tiempo(cuando se realiza la acción)
+\item note 
+\item velocity (intensidad de la nota)
+
+\end{itemize}
+El equivalente al mensaje de NOTE\_OFF es el NOTE\_ON con velocity 0.
+
+\subsection*{Programa implementado}
+El problema a resolver es la sintetizacion de un solo track, debido a que un MIDI esta compuesto por tracks, se sintetizan de a uno y posteriormente se suman.
+\par El primer paso es armar la linea de tiempo correspondiente a al track, es decir cuendo se ejecuto cada nota y cuanto duro. Para ello se utilizo la función $trackParser (track,tickPerBeat,tempo)$, recive como parametros el track, los tickPerBeat y el temo, devolviendo un arreglo de notas. Cada nota tiene su frecuencia, su tiempo de comiezo y de fien en segundos.
+Despues resta asignar a cada nota el instrumento, para ello se utiliza la función $trackGenerator(parsedTrack,instrumento,Fs)$, recive como parametro el vector de notas, el instrumento deseado y la frecuencia de sampleo, devolviendo el track sintetizado con el instrumento deseado.
+\par En cuanto a los instrumentos, se utilizaron los desarrollados en los otros  puntos del informe.
+
+\subsection*{Archivos sintetizados}
+
+
+
+
+
+\end{document}
