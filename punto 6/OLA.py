@@ -51,36 +51,36 @@ class ola:
         self.sigma=np.zeros(len(self.gama))
         self.gama[0] = 1
         self.w=np.hanning(self.wl)
-        #compute gamma
+        #calculo gamma
         for i in range(1,len(self.gama)-1):
             self.gama[i]=self.gama[i-1] + self.nu
-            #print(self.gama[i])
 
-        #compute sigma
+        #calculo sigma
 
         for i in range(0,len(self.sigma)-1):
             self.sigma[i]=self.tao1(self.gama[i])
 
         #overlap and add
-
-        for i in range(2,len(self.sigma)-2):
-            frame=self.myProduct(self.x[self.bw(self.sigma[i]): self.ew(self.sigma[i])],self.w)
-            if(len(frame)!=self.wl):
-                frame=np.concatenate((frame,np.zeros((self.wl-len(frame)))))
-            #print('min '+str(self.bw(self.gama[i]))+' max '+str(self.ew(self.gama[i]))+' sigma ' +'min '+str(self.bw(self.sigma[i]))+' max '+str(self.ew(self.sigma[i])))
-            self.y[self.bw(self.gama[i]): (self.ew(self.gama[i]))] =  self.y[self.bw(self.gama[i]): (self.ew(self.gama[i]))] + frame
-
+        try:
+            for i in range(2,len(self.sigma)-2):
+                frame=self.myProduct(self.x[self.bw(self.sigma[i]): self.ew(self.sigma[i])],self.w)
+                if(len(frame)!=self.wl):
+                    frame=np.concatenate((frame,np.zeros((self.wl-len(frame)))))
+                #print('min '+str(self.bw(self.gama[i]))+' max '+str(self.ew(self.gama[i]))+' sigma ' +'min '+str(self.bw(self.sigma[i]))+' max '+str(self.ew(self.sigma[i])))
+                self.y[self.bw(self.gama[i]): (self.ew(self.gama[i]))] =  self.y[self.bw(self.gama[i]): (self.ew(self.gama[i]))] + frame
+        except:
+            print('El factor de escalamiento no funciona')
 
 
 Fs=41000 #frecuencia de sampleo
 f=20
-timeVector= np.arange(0,10,1/Fs)
+timeVector= np.arange(0,1,1/Fs)
 #Audio, Fs = sf.read('guitarra.wav')
 #Audio= (np.sin(2*pi*f*timeVector) + np.sin(2*50*pi*f*timeVector) + np.sin(2*100*pi*f*timeVector))/3
 Audio= np.sin(2*pi*f*timeVector)
 
 abc=ola()
-abc.run(Audio,0.05)
+abc.run(Audio,2)
 #sd.play(abc.y,Fs)
 #sd.wait()
 #sf.write('out.wav',abc.y,Fs)
