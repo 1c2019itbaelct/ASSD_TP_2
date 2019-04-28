@@ -4,6 +4,7 @@ import soundfile as sf
 import sounddevice as sd
 import matplotlib.pyplot as plt
 from math import pi
+from numpy.fft import fft, rfftfreq ,fftfreq, ifft
 class ola:
     def _init_(self):
 
@@ -84,18 +85,18 @@ class ola:
             #print(len(self.y[self.bw(self.gama[i]): (self.ew(self.gama[i]))]))
             self.y[self.bw(self.gama[i]): (self.ew(self.gama[i]))] =  self.y[self.bw(self.gama[i]): (self.ew(self.gama[i]))] + frame
 
-Audio, Fs = sf.read('guitarra.wav')
+#Audio, Fs = sf.read('guitarra.wav')
 
-Fs =41000 #frecuencia de sampleo
+Fs=41000 #frecuencia de sampleo
 f=200
 timeVector= np.arange(0,1,1/Fs)
-#Audio= (np.sin(2*pi*f*timeVector) + np.sin(2*50*pi*f*timeVector) + np.sin(2*100*pi*f*timeVector))/3
+Audio= (np.sin(2*pi*f*timeVector) + np.sin(2*50*pi*f*timeVector) + np.sin(2*100*pi*f*timeVector))/3
 #Audio= np.sin(2*pi*f*timeVector)
 
 abc=ola()
-abc.run(Audio,4)
-sd.play(abc.y,Fs)
-sd.wait()
+abc.run(Audio,2)
+#sd.play(abc.y,Fs)
+#sd.wait()
 #sf.write('out.wav',abc.y,Fs)
 
 
@@ -103,14 +104,35 @@ sd.wait()
 n = len(Audio)
 timeVector = np.arange(0, n*(1/Fs), 1/Fs)
 
-plt.figure(1)
-plt.plot(timeVector,Audio)
+n = len(Audio)
+frecVector = fftfreq(n)
+espectroVector = fft(Audio)
+mask = frecVector>0
+truefft=2.0*np.abs(espectroVector/n)
+plt.plot(frecVector[mask],truefft[mask],linewidth=4)
+n1=len(abc.y)
+frecVector1 = fftfreq(n1)
+espectroVector1 = fft(abc.y)
+mask1 = frecVector1>0
+truefft1=2.0*np.abs(espectroVector1/n)
+plt.plot(frecVector1[mask1],truefft1[mask1],linewidth=3)
 
-n2= len(abc.y)
-timeVector = np.arange(0, n2*(1/Fs), 1/Fs)
-plt.figure(2)
-plt.plot(timeVector,abc.y)
+
+
 plt.show()
+
+
+
+plt.show()
+
+#plt.figure(1)
+#plt.plot(timeVector,Audio)
+
+#n2= len(abc.y)
+#timeVector = np.arange(0, n2*(1/Fs), 1/Fs)
+#plt.figure(2)
+#plt.plot(timeVector,abc.y)
+#plt.show()
 
 
 
