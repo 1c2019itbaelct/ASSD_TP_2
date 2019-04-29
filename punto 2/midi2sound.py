@@ -5,7 +5,8 @@ from punto4 import campana
 from punto4 import clarinete
 from punto4 import violin
 import sounddevice as sd
-import matplotlib.pyplot as plt
+import soundfile as sf
+
 class myNote:
     def __init__(self,note,velocity,ti):
         self.note=note
@@ -164,6 +165,8 @@ sound=SintetizadorCancion('concierto.mid',[4,5,6],['violin','campana','campana']
 #
 # #plt.plot(np.arange(0,len(sund3)*(1/Fs),1/Fs),sund3)
 # #plt.show()
-sd.play(sound,Fs)
-sd.wait()
-print('hola')
+
+sf.write('adagio.wav',sound,Fs)
+
+#sd.play(sound,Fs) # descomentar para reproducir 
+#sd.wait() #
