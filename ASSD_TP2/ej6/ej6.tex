@@ -73,8 +73,25 @@ Tal como era des esperarse el algoritmo introduce modulación a se\~nales armón
 
 \subsubsection*{WSOLA(Wave Similarity Overlap and Add)}
 El funcionamiento del algoritmo es similar al OLA, intenta solucionar el problema de las se\~nales armónicas. El problema de OLA, radica en que realiza siempre la misma acción independientemente de la se\~al de entrada.
+\par Para solucionar el problema WSOLA, varia el la posición que toma del fragmento original un $\Delta K$.
 
-\subsection*{PSOLA}
+\begin{figure}[H]
+  \centering
+   \includegraphics[width=0.7\textwidth]{figures/wsola.png}
+  \caption{Ejemplo del funcionamiento del algoritmo, imagen obtenida de Driedger Jonathan TSM Master Thesis}
+\end{figure}
+
+Matemáticamente se describe similar al OLA salvo por offset.
+\begin{equation}
+y(n)=\frac{\sum_{k=1}^{len(\sigma)} \omega(n - \gamma (k)) x(n-\gamma (k) + \sigma (k) + \Delta K)}{\sum_{k=1}^{len(\sigma)}\omega(n - \gamma (k))}
+\end{equation}
+
+El $\Delta K$ se obtiene haciendo la correlación cruzada(busca similitud, para evitar saltos de fase) entre dos fragmentos contiguos en la entrada.
+
+\subsection*{PSOLA(Pitch Synchronous Overlap and Add)}
+
+
+
 
 
 \end{document}

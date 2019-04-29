@@ -157,4 +157,4 @@ sound=SintetizadorCancion('concierto.mid',[4,5,6],['violin','campana','clarinete
 sf.write('adagio.wav',sound,Fs)
 
 #sd.play(sound,Fs) # descomentar para reproducir
-#sd.wait() #
+#sd.wait() # descomentar para reproducir
