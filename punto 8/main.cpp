@@ -2,19 +2,29 @@
 #include <math.h>
 #include "portaudio.h"
 #include "set_eco_simple.h"
-using namespace std;
-#define PA_SAMPLE_TYPE      paFloat32
-enum {ECO_SIMPLE,ECO_PLANO,ECO_LP,ECO_COMPLETO,ECO_CONV,FLANGER,ROBOT,GIRO_3D,VIBRATO}effect_type;
+#include "set_robot.h"
 
-int main(void);
+#define PA_SAMPLE_TYPE      paFloat32
+
+typedef enum {ECO_SIMPLE,ECO_PLANO,ECO_LP,ECO_COMPLETO,ECO_CONV,FLANGER,ROBOT,GIRO_3D,VIBRATO}effect_type_t;
+
+using namespace std;
+
+int gNumNoInputs;
+
 int main(void)
 {
     PaStreamParameters inputParameters, outputParameters;
     PaStream *stream;
     PaError err;
-
+    effect_type_t effect;
     err = Pa_Initialize();
+
+    //TODO: obtener el tipo de efecto del usuario
+    effect = ROBOT;
+
     if( err != paNoError ) goto error;
+
 
     inputParameters.device = Pa_GetDefaultInputDevice(); /* default input device */
     if (inputParameters.device == paNoDevice) {
@@ -36,7 +46,8 @@ int main(void)
     outputParameters.suggestedLatency = Pa_GetDeviceInfo( outputParameters.device )->defaultLowOutputLatency;
     outputParameters.hostApiSpecificStreamInfo = NULL;
 
-    switch(effect_type)
+
+    switch(effect)
     {
         case ECO_SIMPLE:
             err = set_eco_simple(stream,inputParameters, outputParameters,err);
@@ -52,6 +63,7 @@ int main(void)
         case FLANGER:
             break;
         case ROBOT:
+            err = set_robot(stream,inputParameters, outputParameters,err);
             break;
         case GIRO_3D:
             break;
