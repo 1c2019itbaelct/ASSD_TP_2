@@ -2,6 +2,7 @@
 #include <math.h>
 #include "portaudio.h"
 #include "set_eco_simple.h"
+#include "set_eco_plano.h"
 #include "set_robot.h"
 
 #define PA_SAMPLE_TYPE      paFloat32
@@ -21,7 +22,7 @@ int main(void)
     err = Pa_Initialize();
 
     //TODO: obtener el tipo de efecto del usuario
-    effect = ROBOT;
+    effect = ECO_PLANO;
 
     if( err != paNoError ) goto error;
 
@@ -53,6 +54,7 @@ int main(void)
             err = set_eco_simple(stream,inputParameters, outputParameters,err);
             break;
         case ECO_PLANO:
+            err = set_eco_plano(stream,inputParameters, outputParameters,err);
             break;
         case ECO_COMPLETO:
             break;
@@ -63,7 +65,7 @@ int main(void)
         case FLANGER:
             break;
         case ROBOT:
-            err = set_robot(stream,inputParameters, outputParameters,err);
+            //err = set_robot(stream,inputParameters, outputParameters,err);
             break;
         case GIRO_3D:
             break;
