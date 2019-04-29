@@ -7,6 +7,7 @@ from punto4 import violin
 import sounddevice as sd
 import soundfile as sf
 
+
 class myNote:
     def __init__(self,note,velocity,ti):
         self.note=note
@@ -20,7 +21,9 @@ class myNote:
 
 
 
-#recive un track, y devuelve un vector de notas
+#trackParser
+#recive un track(de mido), tick per beat y tempo
+#devuelve un arreglo de myNote con los tiempos en segundos
 def trackParser (track,tickPerBeat,tempo):
     openNotes=[]
     closedNotes=[]
@@ -58,7 +61,9 @@ def noteToFrec(note):
 
 
 
-
+#trackGenerator
+#recive un vector de myNotes, instrumento (string, ej violin) y la frecuencia de sampleo(Hz)
+#devuelve un vector de amplitudes en funcion del tiempo
 def trackGenerator(parsedTrack,instrumento,Fs):
     songSize=parsedTrack[len(parsedTrack)-1].tFinal*Fs
     song=np.zeros(int(songSize*1.5))
@@ -72,6 +77,10 @@ def trackGenerator(parsedTrack,instrumento,Fs):
         song[int(ti * Fs):length] = song[int(ti * Fs):length] + fragmento
     return song[0:length-1]
 
+#sintetizador
+#utilizando las funciones desarroladas en el resot del tp
+#recive frec(frecuencia del instrumento), duracion del sonido, frecuencia de sampleo(Hz), instrumento (string, ej violin)
+#devuelve un vector de amplitudes en funcion del tiempo
 def sintetizador(frec,dt,Fs,instrumento):
     if(instrumento=='campana'):
        data=campana(frec, 1, 1, dt, Fs)
@@ -81,7 +90,10 @@ def sintetizador(frec,dt,Fs,instrumento):
         data=violin(frec, 1, 1, dt, Fs)
     return data
 
-
+#SintetizadorCancion
+#recive path (path al archivo midi), tracks(que tracks se quieren sintetizar ej [4,5,6]) , instrumento
+#(vector de instrumentos, que instrumento asigno a cada track, ej ['violin','campana','clarinete']) y Fs frecuencia de sampleo (Hz)
+#devuelve un vector de amplitudes en el tiempo
 def SintetizadorCancion(path,tracks,instrumento,Fs):
     file = md.MidiFile(path)
     trackVector=file.tracks
@@ -140,33 +152,9 @@ def SintetizadorCancion(path,tracks,instrumento,Fs):
 
 
 Fs=41100
-sound=SintetizadorCancion('concierto.mid',[4,5,6],['violin','campana','campana'],Fs)
-#
-# file = md.MidiFile('concierto.mid')
-# trackVector = file.tracks
-# track = trackVector[3]
-# dataTrack=file.tracks[0]
-#
-# parsedTrack = trackParser(track,file.ticks_per_beat,(dataTrack[2]).tempo)
-# parsedTrack2=trackParser(trackVector[6],file.ticks_per_beat,(dataTrack[2]).tempo)
-#
-#
-# sound1=trackGenerator(parsedTrack,'campana',Fs)
-# sound2=trackGenerator(parsedTrack2,'violin',Fs)
-# sund3=np.zeros(min(len(sound1),len(sound2)))
-# m2=max(abs(sound2.max()),abs(sound2.min()))
-# m1=max(abs(sound1.max()),abs(sound1.min()))
-# for i in range(0,len(sund3)-1):
-#     sund3[i]=sound1[i]/m1+sound2[i]/m2
-#
-# sund3=sund3/max(abs(sund3.max()),abs(sund3.min()))
-# print(sund3.max())
-# print(sund3.min())
-#
-# #plt.plot(np.arange(0,len(sund3)*(1/Fs),1/Fs),sund3)
-# #plt.show()
+sound=SintetizadorCancion('concierto.mid',[4,5,6],['violin','campana','clarinete'],Fs)
 
 sf.write('adagio.wav',sound,Fs)
 
-#sd.play(sound,Fs) # descomentar para reproducir 
+#sd.play(sound,Fs) # descomentar para reproducir
 #sd.wait() #
