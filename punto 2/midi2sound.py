@@ -81,34 +81,89 @@ def sintetizador(frec,dt,Fs,instrumento):
     return data
 
 
+def SintetizadorCancion(path,tracks,instrumento,Fs):
+    file = md.MidiFile(path)
+    trackVector=file.tracks
+    dataTrack=trackVector[0]
+    tickPerBeat=0
+    tempo=750000
+    parsedTrackVector=[]
+    soundVector=[]
+    maxlenghtSound=0
+    sound=np.zeros(10) #se almacena la cancion
+    try:
+        tickPerBeat = file.ticks_per_beat
+    except:
+        tickPerBeat=140
+    #buco el tempo
+    for x in dataTrack:
+        if(x.type=='set_tempo'):
+            tempo=x.tempo
+    #genero las lineas temporales
+    for x in tracks:
+        parsedTrackVector.append(trackParser(trackVector[x],tickPerBeat,tempo))
+    #a cada liena temporar le agrego un instrumento
+    for i in range(len(tracks)):
+        instrument='default'
+        try:
+            instrument=instrumento[i]
+        except:
+            instrument='default'
+        soundVector.append(trackGenerator(parsedTrackVector[i],instrument,Fs))
+
+    #busco el track mas largo
+    for x in soundVector:
+        maxlenghtSound=max(maxlenghtSound,len(x))
+
+    sound=np.zeros(maxlenghtSound)
+
+    #sumo todos los instrumentos
+    for x in soundVector:
+        for i in range(0,len(x)-1):
+            sound[i]=sound[i]+x[i]
+
+    #normalizo el vecotr
+    sound=sound/(max(abs(max(sound)),abs(min(sound))))
+    return sound
+
+
+
+
+
+
+
+
 
 
 
 
 
 Fs=41100
-file = md.MidiFile('concierto.mid')
-trackVector = file.tracks
-track = trackVector[3]
-dataTrack=file.tracks[0]
-parsedTrack = trackParser(track,file.ticks_per_beat,(dataTrack[2]).tempo)
-parsedTrack2=trackParser(trackVector[6],file.ticks_per_beat,(dataTrack[2]).tempo)
-
-
-sound1=trackGenerator(parsedTrack,'campana',Fs)
-sound2=trackGenerator(parsedTrack2,'violin',Fs)
-sund3=np.zeros(min(len(sound1),len(sound2)))
-m2=max(abs(sound2.max()),abs(sound2.min()))
-m1=max(abs(sound1.max()),abs(sound1.min()))
-for i in range(0,len(sund3)-1):
-    sund3[i]=sound1[i]/m1+sound2[i]/m2
-
-sund3=sund3/max(abs(sund3.max()),abs(sund3.min()))
-print(sund3.max())
-print(sund3.min())
-
-#plt.plot(np.arange(0,len(sund3)*(1/Fs),1/Fs),sund3)
-#plt.show()
-sd.play(sound1,Fs)
+sound=SintetizadorCancion('concierto.mid',[4,5,6],['violin','campana','campana'],Fs)
+#
+# file = md.MidiFile('concierto.mid')
+# trackVector = file.tracks
+# track = trackVector[3]
+# dataTrack=file.tracks[0]
+#
+# parsedTrack = trackParser(track,file.ticks_per_beat,(dataTrack[2]).tempo)
+# parsedTrack2=trackParser(trackVector[6],file.ticks_per_beat,(dataTrack[2]).tempo)
+#
+#
+# sound1=trackGenerator(parsedTrack,'campana',Fs)
+# sound2=trackGenerator(parsedTrack2,'violin',Fs)
+# sund3=np.zeros(min(len(sound1),len(sound2)))
+# m2=max(abs(sound2.max()),abs(sound2.min()))
+# m1=max(abs(sound1.max()),abs(sound1.min()))
+# for i in range(0,len(sund3)-1):
+#     sund3[i]=sound1[i]/m1+sound2[i]/m2
+#
+# sund3=sund3/max(abs(sund3.max()),abs(sund3.min()))
+# print(sund3.max())
+# print(sund3.min())
+#
+# #plt.plot(np.arange(0,len(sund3)*(1/Fs),1/Fs),sund3)
+# #plt.show()
+sd.play(sound,Fs)
 sd.wait()
 print('hola')
