@@ -78,7 +78,7 @@ def noteToFrec(note):
 #devuelve un vector de amplitudes en funcion del tiempo
 def trackGenerator(parsedTrack,instrumento,Fs):
     songSize=parsedTrack[len(parsedTrack)-1].tFinal*Fs
-    song=np.zeros(int(songSize*1.5))
+    song=np.zeros(int(songSize*1.01))
     length=0
     for x in parsedTrack:
         ti = x.tInicial
@@ -113,8 +113,6 @@ def SintetizadorCancion(path,tracks,instrumento,Fs):
     tickPerBeat=0
     tempo=750000
     parsedTrackVector=[]
-    soundVector=[]
-    maxlenghtSound=0
     sound=np.zeros(10) #se almacena la cancion
     try:
         tickPerBeat = file.ticks_per_beat
@@ -136,24 +134,27 @@ def SintetizadorCancion(path,tracks,instrumento,Fs):
             instrument=instrumento[i]
         except:
             instrument='default'
-        soundVector.append(trackGenerator(parsedTrackVector[i],instrument,Fs))
+        temp=trackGenerator(parsedTrackVector[i],instrument,Fs)
+        #temp=temp/max(abs(temp.max()),abs(temp.min()))
+        sound=myVctorSumm(sound,temp)
 
-    #busco el track mas largo
-    for x in soundVector:
-        maxlenghtSound=max(maxlenghtSound,len(x))
-
-    sound=np.zeros(maxlenghtSound)
-
-    #sumo todos los instrumentos
-    for x in soundVector:
-        for i in range(0,len(x)-1):
-            sound[i]=sound[i]+x[i]
 
     #normalizo el vector
     sound=sound/(max(abs(max(sound)),abs(min(sound))))
     return sound
 
 
+def myVctorSumm(x,y):
+    temp=np.zeros(10)
+    if(len(x)>len(y)):
+        temp=x
+        for i in range(0,len(y)-1):
+            temp[i] = (temp[i]+y[i])
+    else:
+        temp = y
+        for i in range(0, len(x) - 1):
+            temp[i] = (temp[i] + x[i])
+    return temp
 
 
 
@@ -190,9 +191,9 @@ def getTempo(currentTick,tempoVector):
 
 
 Fs=41100
-sound=SintetizadorCancion('RodrigoAdagio.mid',[1,2,3],['campana','clarinete','violin'],Fs)
+sound=SintetizadorCancion('RodrigoAdagio.mid',[1,2,3,4,5,6,7,8,9,10],['campana','clarinete','violin','campana','clarinete','violin','campana','clarinete','violin','campana','clarinete','violin'],Fs)
 
 sf.write('RodrigoAdagio.wav',sound,Fs)
 
-sd.play(sound,Fs) # descomentar para reproducir
-sd.wait() # descomentar para reproducir
+#sd.play(sound,Fs) # descomentar para reproducir
+#sd.wait() # descomentar para reproducir
