@@ -20,6 +20,17 @@ class myNote:
         self.dt=self.tFinal -self.tInicial
 
 
+class myTempo:
+    def __init__(self):
+        self.tickI=0
+        self.tickF=0
+        self.tempo=0
+
+
+
+
+
+
 
 #trackParser
 #recive un track(de mido), tick per beat y tempo
@@ -28,9 +39,10 @@ def trackParser (track,tickPerBeat,tempo):
     openNotes=[]
     closedNotes=[]
     currentTime=0
+    currentTick=0
     for x in track:
-
-        currentTime=currentTime+md.tick2second(x.time,tickPerBeat,tempo)
+        currentTick=currentTick+x.time
+        currentTime=currentTime+md.tick2second(x.time,tickPerBeat,getTempo(currentTick,tempo))
         if(x.type=='note_on'):
             if (x.velocity == 0):#si velocity es cero es igual a un note off
 
@@ -109,9 +121,11 @@ def SintetizadorCancion(path,tracks,instrumento,Fs):
     except:
         tickPerBeat=140
     #buco el tempo
-    for x in dataTrack:
-        if(x.type=='set_tempo'):
-            tempo=x.tempo
+    # for x in dataTrack:
+    #     if(x.type=='set_tempo'):
+    #         tempo=x.tempo
+    tempo=tempoVectorGenerator(dataTrack)
+
     #genero las lineas temporales
     for x in tracks:
         parsedTrackVector.append(trackParser(trackVector[x],tickPerBeat,tempo))
@@ -135,7 +149,7 @@ def SintetizadorCancion(path,tracks,instrumento,Fs):
         for i in range(0,len(x)-1):
             sound[i]=sound[i]+x[i]
 
-    #normalizo el vecotr
+    #normalizo el vector
     sound=sound/(max(abs(max(sound)),abs(min(sound))))
     return sound
 
@@ -143,18 +157,42 @@ def SintetizadorCancion(path,tracks,instrumento,Fs):
 
 
 
+def tempoVectorGenerator(dataTrack):
+    currentTick=0
+    tempoVector=[]
+
+    for x in dataTrack:
+        if(x.type=='set_tempo'):
+            currentTick=currentTick+x.time
+            temp=myTempo()
+            temp.tickI=currentTick
+            temp.tempo=x.tempo
+            tempoVector.append(temp)
+            if (len(tempoVector)!=0):
+                (tempoVector[len(tempoVector)-2]).tickF=currentTick
+    return tempoVector
 
 
+def getTempo(currentTick,tempoVector):
+    tempo=0
+    if(len(tempoVector)!=0):
+        for x in tempoVector:
+            if ((currentTick>=x.tickI)&(currentTick<x.tickF)):
+                tempo=x.tempo
+                break
+            elif (x.tickF==0):
+                tempo = x.tempo
+                break
+    else:
+        tempo=tempoVector[0].tempo
 
-
-
-
+    return tempo
 
 
 Fs=41100
-sound=SintetizadorCancion('concierto.mid',[4,5,6],['violin','campana','clarinete'],Fs)
+sound=SintetizadorCancion('RodrigoAdagio.mid',[1,2,3],['campana','clarinete','violin'],Fs)
 
-sf.write('adagio.wav',sound,Fs)
+#sf.write('soytuamigo.wav',sound,Fs)
 
-#sd.play(sound,Fs) # descomentar para reproducir
-#sd.wait() # descomentar para reproducir
+sd.play(sound,Fs) # descomentar para reproducir
+sd.wait() # descomentar para reproducir
