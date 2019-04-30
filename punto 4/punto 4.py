@@ -33,7 +33,7 @@ def clarinet_funct(attack,sustain,release,sampling_frecuenciy,A0,I0):
 
 def clarinete (f0,A0,I0,duracion,fsampl):
     fc = 3*f0
-    fm = 2*f0
+    fm = f0
     ts = pyl.arange(0,duracion,1/fsampl) #creo el espacio temporal
     
 
@@ -48,8 +48,8 @@ def clarinete (f0,A0,I0,duracion,fsampl):
 def campana(f0,A0,I0,duracion,fsampl):
     ts = pyl.arange(0,duracion,1/fsampl) #creo el espacio temporal
     Tao = duracion/3
-    fc = f0
-    fm = 2*f0
+    fc = 5*f0
+    fm = 7*f0
 
     I_t=I0*pyl.exp(-ts/Tao) #para la campana 
     A_t =A0 * pyl.exp(-ts/Tao)  #para la campana
