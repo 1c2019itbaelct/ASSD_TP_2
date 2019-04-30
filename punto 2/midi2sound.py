@@ -192,7 +192,7 @@ def getTempo(currentTick,tempoVector):
 Fs=41100
 sound=SintetizadorCancion('RodrigoAdagio.mid',[1,2,3],['campana','clarinete','violin'],Fs)
 
-#sf.write('soytuamigo.wav',sound,Fs)
+sf.write('RodrigoAdagio.wav',sound,Fs)
 
 sd.play(sound,Fs) # descomentar para reproducir
 sd.wait() # descomentar para reproducir

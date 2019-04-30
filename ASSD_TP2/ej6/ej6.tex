@@ -89,6 +89,21 @@ y(n)=\frac{\sum_{k=1}^{len(\sigma)} \omega(n - \gamma (k)) x(n-\gamma (k) + \sig
 El $\Delta K$ se obtiene haciendo la correlación cruzada(busca similitud, para evitar saltos de fase) entre dos fragmentos contiguos en la entrada.
 
 \subsection*{PSOLA(Pitch Synchronous Overlap and Add)}
+A diferencia de los métodos ya mencionados, PSOLA modifica el pitch de la se\~nal de entrada.
+\par El primer paso del algoritmo es identificar las marcas de pitch en el fragmento de audio, para ello se busca las amplitudes máximas en el fragmento de audio
+\begin{figure}[H]
+  \centering
+   \includegraphics[width=0.5\textwidth]{figures/pitchm.png}
+  \caption{Ejemplo de la identificación de pitch marks, imagen obtenida de https://sites.google.com/site/conansbowtie/pitch-synchronous-overlap-and-add}
+\end{figure}
+Después de identificar las marcas de pitch, se procede a realizar el algoritmo OLA, eligiendo el ancho de la ventana como 2 veces la distancia entre pitchs, y centrando cada ventana en las marcas halladas. Ajustando la distancia final entre las marcas de pitch se logra alterar el pitch, tal como se ilustra en la siguiente imagen
+
+\begin{figure}[H]
+  \centering
+   \includegraphics[width=0.58\textwidth]{figures/psola.png}
+  \caption{Ejemplo de PSOLA}
+\end{figure}
+
 
 
 
