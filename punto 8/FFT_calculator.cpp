@@ -13,25 +13,24 @@ FFT_calculator::FFT_calculator()
 {
 }
 
-
 FFT_calculator::~FFT_calculator()
 {
-	//Destruir los W
 }
 
 void FFT_calculator::fft_init()
 {
-	// Llenar todos los W_N. Hay un valor extra
+	// Llenar todos los W_N. Hay un valor extra por simetria en la desreferenciacion en la IFFT
 	for (int i = 0; i < N_FFT_MAX / 2 + 1; i++)
 	{
 		twiddleFactors[i] = complex<float>(cos(2 * M_PI / N_FFT_MAX * i), -sin((2 * M_PI / N_FFT_MAX * i)));
 	}
 }
 
-void FFT_calculator::fft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out)
+void FFT_calculator::fft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out, bool inverse)
 {	
+    if( &out != &in)
+        out = in;
 
-	out = in;
 	if( in.size() < 2) { return; } // Si no hay minimo dos muestras, no hay nada mas que hacer.
 
 	int logn = (int)log2(in.size()); // Se pasa por el logaritmo y se trunca para asegurar que se trabaja con una potencia de 2
@@ -49,102 +48,6 @@ void FFT_calculator::fft(std::vector<std::complex<float>>& in, std::vector<std::
 	cout << endl;
 #endif // DEBUG_FFT
 
-
-	// butterflyWingSpan_0: distancia inicial entre wings (nodos) de una misma butterfly ( = N/2 = (2^logn)/2 = 2^(logn-1) )
-	int butterflyWingSpan_0 = N >> 1;
-	
-	// twiddleFactorIndexSep: separacion entre los indices de los twiddle factors correspondientes
-	// a butterflies calculadas consecutivamente. Se duplica al aumentar la etapa.
-	// Si N = N_FFT_MAX, es 1. Si se divide por dos, la separacion se duplica. => sep = N_FFT_MAX / N => sep = 2^(LOG_N_FFT_MAX - log(N))
-	int twiddleFactorIndexSep = 1 << (LOG_N_FFT_MAX - logn);
-	
-	// twiddleFactorIndexMax: maximo indice de twiddle factors. No se modifica al aumentar la etapa.
-	int twiddleFactorIndexMax = (butterflyWingSpan_0 - 1) * twiddleFactorIndexSep;
-	
-	//twiddleFactorIndex: indice del twiddle factor.
-	int twiddleFactorIndex = 0;
-	
-	// Identifico las etapas por la distancia entre los nodos de la misma butterfly (butterflyWingSpan). 
-	// Mientras avanzo de etapa, butterflyWingSpan se divide por dos.
-	// En la ultima etapa, esta distancia es 1
-	// Si hay 1 o 0 muestras, butterflyWingSpan inicia en 0 => se saltea el loop siguiente
-	for (int butterflyWingSpan = butterflyWingSpan_0; 
-		butterflyWingSpan; 
-		butterflyWingSpan >>= 1, twiddleFactorIndexMax-=twiddleFactorIndexSep, twiddleFactorIndexSep <<= 1, twiddleFactorIndex = 0)
-	{
-		// Cada butterfly tiene dos wings: la top (butterflyTopWing), que tiene indice menor dentro 
-		// del arreglo, y la bottom (butterflyBottomWing), que tiene indice mayor dentro del arreglo.
-		// butterflyBottomWing = butterflyTopWing + butterflyWingSpan
-		// Si se recorren todas las wings superiores en orden, la ultima esta en la posicion
-		// 2*butterflyWingSpan_0 - butterflyWingSpan - 1
-
-		// Busco la top wing de cada butterfly. Con eso mas el span obtengo la bottom wing.
-		// Una vez que tengo las dos wings hago los calculos
-		for (int butterflyTopWing = 0;  
-			butterflyTopWing < (butterflyWingSpan_0 << 1) - butterflyWingSpan; 
-			butterflyTopWing = (++butterflyTopWing) + (butterflyTopWing & butterflyWingSpan),
-			twiddleFactorIndex = (twiddleFactorIndex + twiddleFactorIndexSep) & twiddleFactorIndexMax) //TODO: explicar
-		{
-#ifdef DEBUG_FFT
-			cout << endl << "Nueva mariposa:" << endl;
-			cout << "top: " << bitset<8>(butterflyTopWing) << "\t" << butterflyTopWing << endl;
-			cout << "bot: " << bitset<8>(butterflyTopWing + butterflyWingSpan) << "\t" << butterflyTopWing + butterflyWingSpan << endl;
-#endif
-			complex<float> topWingContent = out[butterflyTopWing];	//hago backup para no pisar
-			out[butterflyTopWing] = topWingContent + out[butterflyTopWing + butterflyWingSpan];
-			out[butterflyTopWing + butterflyWingSpan] = twiddleFactors[twiddleFactorIndex] * (topWingContent - out[butterflyTopWing + butterflyWingSpan]);
-
-
-#ifdef DEBUG_FFT
-			cout << "Tfi: " << bitset<8>(twiddleFactorIndex) << "\t" << twiddleFactorIndex << endl << endl;
-			cout << "Twiddle Factor:   " << twiddleFactors[twiddleFactorIndex];
-			cout << " = " << abs(twiddleFactors[twiddleFactorIndex]) << " < " << arg(twiddleFactors[twiddleFactorIndex]) / M_PI << "*PI" << endl;
-			cout << "Top Wing Output:  " << out[butterflyTopWing] << endl;
-			cout << "Bot Wing Output:  " << out[butterflyTopWing+butterflyWingSpan] << endl;
-#endif
-		}
-	}
-#ifdef DEBUG_FFT
-
-#endif // DEBUG_FFT
-
-
-	for (int i = 0; i < N; i++ )
-	{
-		unsigned int brIndex = bitReverseLUT[i];
-		brIndex >>= (LOG_N_FFT_MAX - logn);
-		if (brIndex > i)
-		{
-			complex<float> backup = out[i];
-			out[i] = out[brIndex];
-			out[brIndex] = backup;
-		}
-
-#ifdef DEBUG_FFT
-		cout << "BR:" << bitset<12>(i) << " " << bitset<12>(brIndex) << endl;
-#endif // DEBUG_FFT
-	}
-#ifdef DEBUG_FFT
-	cout << endl << endl << "Salida:" << endl;
-	for (int i = 0; i < N; i++)
-	{
-		cout << "x(" << i << ") = " << out[i] << endl;
-	}
-	cout << endl;
-#endif // DEBUG_FFT
-}
-
-
-void FFT_calculator::ifft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out)
-{
-	out = in;
-	if( in.size() < 2) { return; } // Si no hay minimo dos muestras, no hay nada mas que hacer.
-
-	int logn = (int)log2(in.size()); // Se pasa por el logaritmo y se trunca para asegurar que se trabaja con una potencia de 2
-	if(logn > LOG_N_FFT_MAX) { logn = LOG_N_FFT_MAX; } // Si hay mas muestras, truncar al maximo admitido.
-
-	// N: cantidad de muestras que se analizan
-	int N = 1 << logn;
 
 	// butterflyWingSpan_0: distancia inicial entre wings (nodos) de una misma butterfly ( = N/2 = (2^logn)/2 = 2^(logn-1) )
 	int butterflyWingSpan_0 = N >> 1;
@@ -190,8 +93,13 @@ void FFT_calculator::ifft(std::vector<std::complex<float>>& in, std::vector<std:
 #endif
 			complex<float> topWingContent = out[butterflyTopWing];	//hago backup para no pisar
 			out[butterflyTopWing] = topWingContent + out[butterflyTopWing + butterflyWingSpan];
-			out[butterflyTopWing + butterflyWingSpan] = -twiddleFactors[twiddleFactorIndexMax - twiddleFactorIndex + twiddleFactorIndexSep] * (topWingContent - out[butterflyTopWing + butterflyWingSpan]);
 
+			//La segunda ala depende de si es fft o ifft
+            out[butterflyTopWing + butterflyWingSpan] =
+                    (inverse ?
+                      -twiddleFactors[twiddleFactorIndexMax - twiddleFactorIndex + twiddleFactorIndexSep]
+                    : twiddleFactors[twiddleFactorIndex]) *
+                    (topWingContent - out[butterflyTopWing + butterflyWingSpan]);
 
 #ifdef DEBUG_FFT
 			cout << "Tfi: " << bitset<8>(twiddleFactorIndex) << "\t" << twiddleFactorIndex << endl << endl;
@@ -206,6 +114,7 @@ void FFT_calculator::ifft(std::vector<std::complex<float>>& in, std::vector<std:
 
 #endif // DEBUG_FFT
 
+
 	for (int i = 0; i < N; i++ )
 	{
 		unsigned int brIndex = bitReverseLUT[i];
@@ -216,19 +125,44 @@ void FFT_calculator::ifft(std::vector<std::complex<float>>& in, std::vector<std:
 			out[i] = out[brIndex];
 			out[brIndex] = backup;
 #ifdef DEBUG_FFT
-			cout << "BR:" << bitset<12>(i) << " " << bitset<12>(brIndex) << endl;
+            cout << "BR:" << bitset<12>(i) << " " << bitset<12>(brIndex) << endl;
 #endif // DEBUG_FFT
 		}
 	}
+	if(inverse)
+        for (int i = 0; i < N; i++)
+            out[i] /= N;
+
+
+
+#ifdef DEBUG_FFT
+	cout << endl << endl << "Salida:" << endl;
 	for (int i = 0; i < N; i++)
 	{
-		out[i] /= N;
+		cout << "X(" << i << ") = " << out[i] << endl;
 	}
+	cout << endl;
+#endif // DEBUG_FFT
+}
+
+void FFT_calculator::fft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out)
+{
+#ifdef DEBUG_FFT
+    cout << "FFT:" << endl;
+#endif //
+    fft(in, out, false);
+}
+
+void FFT_calculator::ifft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out)
+{
+#ifdef DEBUG_FFT
+    cout << "IFFT:" << endl;
+#endif //
+	fft(in, out, true);
 }
 
 std::complex<float> FFT_calculator::twiddleFactors[N_FFT_MAX / 2 + 1] = {};
 
-//TODO: con media tabla me alcanza?
 const unsigned int FFT_calculator::bitReverseLUT[N_FFT_MAX] =
 { 0, 2048, 1024, 3072, 512, 2560, 1536, 3584, 256, 2304, 1280, 3328, 768, 2816, 1792, 3840,
 128, 2176, 1152, 3200, 640, 2688, 1664, 3712, 384, 2432, 1408, 3456, 896, 2944, 1920, 3968,

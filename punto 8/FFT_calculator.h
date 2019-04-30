@@ -18,6 +18,9 @@ public:
 	static void ifft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out);
 
 private:
+
+    static void fft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out, bool inverse);
+
 	static std::complex<float> twiddleFactors[N_FFT_MAX / 2 + 1];
 	const static unsigned int bitReverseLUT[N_FFT_MAX];
 };
