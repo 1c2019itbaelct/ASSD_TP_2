@@ -8,8 +8,8 @@
 #include "FFT_calculator.h"
 #include <algorithm>
 
-#define SAMPLE_RATE         (60100)
-#define FRAMES_PER_BUFFER   (1024)
+#define SAMPLE_RATE         (60000)
+#define FRAMES_PER_BUFFER   (512)
 typedef float SAMPLE;
 
 using namespace std;
@@ -27,7 +27,10 @@ typedef  struct {
     vector<complex<float>> * aux_right;
 } robot_user_data_t;
 
+void robotize_stream(const std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out);
+void window_stream(const std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out);
 float hanning_window_factor( int i, int n_fft);
+
 
 static int robot_Callback( const void *inputBuffer, void *outputBuffer,
                                 unsigned long framesPerBuffer,
@@ -80,101 +83,68 @@ static int robot_Callback( const void *inputBuffer, void *outputBuffer,
         //  B) Ventana de muestras del callback anterior
         //  C) Ventana de muestras de este callback
 
+        // // // A) Ventana de muestras mitad del callback anterior mitad de este
+
+        //1)cargo las muestras
+
+        aux_left->clear();
+        aux_right->clear();
+
+        aux_left->insert(aux_left->begin(),
+                         past_samples_left->begin() + framesPerBuffer / 2,
+                         past_samples_left->end());
+        aux_left->insert(aux_left->begin() + framesPerBuffer / 2,
+                         current_samples_left->begin(),
+                         current_samples_left->begin() + framesPerBuffer / 2);
+
+        aux_right->insert(aux_right->begin(),
+                          past_samples_right->begin() + framesPerBuffer / 2,
+                          past_samples_right->end());
+        aux_right->insert(aux_right->begin() + framesPerBuffer / 2,
+                          current_samples_right->begin(),
+                          current_samples_right->begin() + framesPerBuffer / 2);
+
+        //2)Aplico ventana
+        window_stream(*aux_left, *aux_left);
+        window_stream(*aux_right, *aux_right);
+
+        //3)Robotizo
+        robotize_stream(*aux_left,  *aux_left);
+        robotize_stream(*aux_right, *aux_right);
+
+        //4)Sumo a la salida
+        for (int i = 0; i < framesPerBuffer; ++i)
         {
-            //  A) Ventana de muestras mitad del callback anterior mitad de este
-
-            //1)cargo las muestras
-
-            aux_left->clear();
-            aux_right->clear();
-
-            aux_left->insert(aux_left->begin(),
-                             past_samples_left->begin() + framesPerBuffer / 2,
-                             past_samples_left->end());
-            aux_left->insert(aux_left->begin() + framesPerBuffer / 2,
-                             current_samples_left->begin(),
-                             current_samples_left->begin() + framesPerBuffer / 2);
-
-            aux_right->insert(aux_right->begin(),
-                              past_samples_right->begin() + framesPerBuffer / 2,
-                              past_samples_right->end());
-            aux_right->insert(aux_right->begin() + framesPerBuffer / 2,
-                              current_samples_right->begin(),
-                              current_samples_right->begin() + framesPerBuffer / 2);
-
-            //2)aplico ventana
-            for (int i = 0; i < framesPerBuffer; ++i) {
-                (*aux_left)[i].real((*aux_left)[i].real() * hanning_window_factor(i, framesPerBuffer));
-                (*aux_right)[i].real((*aux_right)[i].real() * hanning_window_factor(i, framesPerBuffer));
-            }
-
-            //3) FFteo
-            FFT_calculator::fft(*aux_left, *aux_left);
-            FFT_calculator::fft(*aux_right, *aux_right);
-
-            //4) Pongo la fase en 0
-            for (int i = 0; i < framesPerBuffer; i++) {
-                (*aux_left)[i].real(abs((*aux_left)[i]));
-                (*aux_left)[i].imag(0);
-                (*aux_right)[i].real(abs((*aux_right)[i]));
-                (*aux_right)[i].imag(0);
-            }
-
-            //5)iFFTeo
-            FFT_calculator::ifft(*aux_left, *aux_left);
-            FFT_calculator::ifft(*aux_right, *aux_right);
-
-            //6)Sumo a la salida
-            for (int i = 0; i < framesPerBuffer; ++i)
-            {
-                out[2 * i] = (*aux_left)[i].real();
-                out[2 * i + 1] = (*aux_right)[i].real();
-            }
-
+            out[2 * i] = (*aux_left)[i].real();
+            out[2 * i + 1] = (*aux_right)[i].real();
         }
 
-        //  B) Ventana de muestras del callback anterior
+        // // // B) Ventana de muestras del callback anterior
 
+        // El efecto robot ya esta hecho en el callback anterior. Solamente sumo a la salida
         for (int i = 0; i < framesPerBuffer / 2; ++i)
         {
             out[2 * i] += (*past_samples_left)[framesPerBuffer / 2 + i].real();
             out[2 * i + 1] += (*past_samples_right)[framesPerBuffer / 2 + i].real();
         }
 
-        //  C) Ventana de muestras de este callback
+        // // // C) Ventana de muestras de este callback
+
+        //1)cargo las muestras (ya fue hecho en el anteriormente)
+
+        //2)Aplico ventana
+        window_stream(*current_output_left,  *current_samples_left);
+        window_stream(*current_output_right, *current_samples_right);
+
+        //3)Robotizo
+        robotize_stream(*current_output_left,  *current_output_left);
+        robotize_stream(*current_output_right, *current_output_right);
+
+        //4)Sumo a la salida
+        for (int i = framesPerBuffer / 2; i < framesPerBuffer; ++i)
         {
-            //1)cargo las muestras (ya fue hecho en el anteriormente)
-            //2)aplico ventana
-            for (int i = 0; i < framesPerBuffer; ++i)
-            {
-                (*current_samples_left)[i].real((*current_samples_left)[i].real() * hanning_window_factor(i, framesPerBuffer));
-                (*current_samples_right)[i].real((*current_samples_right)[i].real() * hanning_window_factor(i, framesPerBuffer));
-            }
-
-            //3) FFteo. En este caso no sobreescribo el vector de entrada como hice con la ventana
-            // A) porque necesito preservar los valores hasta el proximo callback
-            FFT_calculator::fft(*current_samples_left, *current_output_left);
-            FFT_calculator::fft(*current_samples_right, *current_output_right);
-
-            //4) Pongo la fase en 0
-            for (int i = 0; i < framesPerBuffer; i++) {
-                (*current_output_left)[i].real(abs((*current_output_left)[i]));
-                (*current_output_left)[i].imag(0);
-                (*current_output_right)[i].real(abs((*current_output_right)[i]));
-                (*current_output_right)[i].imag(0);
-            }
-
-            //5)iFFTeo
-            FFT_calculator::ifft(*current_output_left, *current_output_left);
-            FFT_calculator::ifft(*current_output_right, *current_output_right);
-
-            //6)Sumo a la salida
-            for (int i = framesPerBuffer / 2; i < framesPerBuffer; ++i)
-            {
-                out[2 * i] += (*current_output_left)[i].real();
-                out[2 * i + 1] += (*current_output_right)[i].real();
-            }
-
+            out[2 * i] += (*current_output_left)[i].real();
+            out[2 * i + 1] += (*current_output_right)[i].real();
         }
 
         // Guardo las samples de entrada y su output para el proximo callback:
@@ -186,7 +156,30 @@ static int robot_Callback( const void *inputBuffer, void *outputBuffer,
     }
 
     return paContinue;
+}
 
+/**
+ * @brief Aplica el efecto de robot a un stream con ventana hanning
+ *
+ * @param in Buffer de entrada. Para que no sea recortado, su tamanio debe ser potencia de 2.
+ * @param out Buffer de salida. Importante: debe ser de igual o mayor tamanio que el buffer de entrada.
+ */
+void robotize_stream(const std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out)
+{
+    unsigned int N = in.size();
+
+    //1) FFteo
+    FFT_calculator::fft(out, out);
+
+    //2) Pongo la fase en 0
+    for (int i = 0; i < N; i++)
+    {
+        (out)[i].real(abs((out)[i]));
+        (out)[i].imag(0);
+    }
+
+    //3)iFFTeo
+    FFT_calculator::ifft(out, out);
 }
 
 PaError set_robot(PaStream*& stream, PaStreamParameters& inputParameters, PaStreamParameters& outputParameters, PaError& err)
@@ -238,6 +231,15 @@ PaError set_robot(PaStream*& stream, PaStreamParameters& inputParameters, PaStre
         }
     }
     return err;
+}
+
+void window_stream(const std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out)
+{
+    int N = in.size();
+    for (int i = 0; i < N; ++i)
+    {
+        out[i].real(in[i].real() * hanning_window_factor(i, N));
+    }
 }
 
 /**
