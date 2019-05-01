@@ -4,6 +4,7 @@
 #include "set_eco_simple.h"
 #include "set_eco_plano.h"
 #include "set_robot.h"
+#include "set_flanger.h"
 
 #define PA_SAMPLE_TYPE      paFloat32
 
@@ -22,7 +23,7 @@ int main(void)
     err = Pa_Initialize();
 
     //TODO: obtener el tipo de efecto del usuario
-    effect = ECO_PLANO;
+    effect = FLANGER;
 
     if( err != paNoError ) goto error;
 
@@ -63,9 +64,10 @@ int main(void)
         case ECO_CONV:
             break;
         case FLANGER:
+            err = set_flanger(stream,inputParameters, outputParameters,err);
             break;
         case ROBOT:
-            //err = set_robot(stream,inputParameters, outputParameters,err);
+            err = set_robot(stream,inputParameters, outputParameters,err);
             break;
         case GIRO_3D:
             break;
