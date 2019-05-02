@@ -5,8 +5,9 @@
 #include "set_robot.h"
 #include <vector>
 #include <complex>
-#include "FFT_calculator.h"
 #include <algorithm>
+#include "FFT_calculator.h"
+#include "effect_aux_functions.h"
 
 #define SAMPLE_RATE         (60000)
 #define FRAMES_PER_BUFFER   (512)
@@ -27,7 +28,7 @@ typedef  struct {
     vector<complex<float>> * aux_right;
 } robot_user_data_t;
 
-void robotize_stream(const std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out);
+void robotize_stream(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out);
 void window_stream(const std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out);
 float hanning_window_factor( int i, int n_fft);
 
@@ -72,11 +73,14 @@ static int robot_Callback( const void *inputBuffer, void *outputBuffer,
         //Cargo las samples del buffer de entrada en los vectores correspondientes
         for (int i = 0; i < framesPerBuffer; i++)
         {
-            (*current_samples_left)[i].real(in[2 * i]);
+            float left_real = in[2*i];
+            float right_real = in[2*i+1];
+            (*current_samples_left)[i].real(left_real);
             (*current_samples_left)[i].imag(0);
-            (*current_samples_right)[i].real(in[2 * i + 1]);
+            (*current_samples_right)[i].real(right_real);
             (*current_samples_right)[i].imag(0);
         }
+
 
         //En la salida de un callback, estan mezcladas tres ventanas superpuestas 50%:
         //  A) Ventana de muestras mitad del callback anterior mitad de este
@@ -122,10 +126,12 @@ static int robot_Callback( const void *inputBuffer, void *outputBuffer,
         // // // B) Ventana de muestras del callback anterior
 
         // El efecto robot ya esta hecho en el callback anterior. Solamente sumo a la salida
-        for (int i = 0; i < framesPerBuffer / 2; ++i)
+        for (int i = 0; i < framesPerBuffer / 2; i++)
         {
-            out[2 * i] += (*past_samples_left)[framesPerBuffer / 2 + i].real();
-            out[2 * i + 1] += (*past_samples_right)[framesPerBuffer / 2 + i].real();
+            SAMPLE left_sample = (*past_output_left)[framesPerBuffer / 2 + i].real();
+            SAMPLE right_sample = (*past_output_right)[framesPerBuffer / 2 + i].real();
+            out[2 * i] +=  left_sample;
+            out[2 * i + 1] += right_sample;
         }
 
         // // // C) Ventana de muestras de este callback
@@ -133,8 +139,8 @@ static int robot_Callback( const void *inputBuffer, void *outputBuffer,
         //1)cargo las muestras (ya fue hecho en el anteriormente)
 
         //2)Aplico ventana
-        window_stream(*current_output_left,  *current_samples_left);
-        window_stream(*current_output_right, *current_samples_right);
+        window_stream(*current_samples_left,  *current_output_left);
+        window_stream(*current_samples_right, *current_output_right);
 
         //3)Robotizo
         robotize_stream(*current_output_left,  *current_output_left);
@@ -143,18 +149,19 @@ static int robot_Callback( const void *inputBuffer, void *outputBuffer,
         //4)Sumo a la salida
         for (int i = framesPerBuffer / 2; i < framesPerBuffer; ++i)
         {
-            out[2 * i] += (*current_output_left)[i].real();
-            out[2 * i + 1] += (*current_output_right)[i].real();
+            SAMPLE left_sample = (*current_output_left)[i].real();
+            SAMPLE right_sample = (*current_output_right)[i].real();
+            out[2 * i] +=  left_sample;
+            out[2 * i + 1] += right_sample;
         }
 
         // Guardo las samples de entrada y su output para el proximo callback:
-        swap(current_samples_left, past_samples_left);
-        swap(current_samples_right, past_samples_right);
-        swap(current_output_left, past_output_left);
-        swap(current_output_right, past_output_right);
+        swap(UD->current_samples_left, UD->past_samples_left);
+        swap(UD->current_samples_right, UD->past_samples_right);
+        swap(UD->current_output_left, UD->past_output_left);
+        swap(UD->current_output_right, UD->past_output_right);
 
     }
-
     return paContinue;
 }
 
@@ -164,12 +171,13 @@ static int robot_Callback( const void *inputBuffer, void *outputBuffer,
  * @param in Buffer de entrada. Para que no sea recortado, su tamanio debe ser potencia de 2.
  * @param out Buffer de salida. Importante: debe ser de igual o mayor tamanio que el buffer de entrada.
  */
-void robotize_stream(const std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out)
+void robotize_stream(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out)
 {
+
     unsigned int N = in.size();
 
     //1) FFteo
-    FFT_calculator::fft(out, out);
+    FFT_calculator::fft(in, out);
 
     //2) Pongo la fase en 0
     for (int i = 0; i < N; i++)
@@ -233,24 +241,5 @@ PaError set_robot(PaStream*& stream, PaStreamParameters& inputParameters, PaStre
     return err;
 }
 
-void window_stream(const std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out)
-{
-    int N = in.size();
-    for (int i = 0; i < N; ++i)
-    {
-        out[i].real(in[i].real() * hanning_window_factor(i, N));
-    }
-}
 
-/**
- * @brief Devuelve el valor de la ventana de Hanning en un punto
- *
- * @param i numero de muestra dentro de la ventana (0 <= i < n_fft)
- * @param n_fft cantidad de muestras de la ventana
- */
-float hanning_window_factor( int i, int n_fft)
-{
-//	return 1;
-    return 0.5 - 0.5 * cos(2*M_PI * i/(float)n_fft);
-}
 
