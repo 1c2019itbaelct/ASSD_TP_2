@@ -24,6 +24,6 @@ void window_stream(const std::vector<std::complex<float>>& in, std::vector<std::
 */
 float hanning_window_factor( int i, int n_fft)
 {
-	return 0.5;
-//    return 0.5 - 0.5 * cos(2*M_PI * (float)i/(float)n_fft);
+//	return 0.5;
+    return 0.5 - 0.5 * cos(2*M_PI * (float)i/((float)n_fft-1));
 }
