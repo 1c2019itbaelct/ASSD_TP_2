@@ -56,16 +56,4 @@ def karplus_strong_drum(waveshape, n_samples,prob):
         current_sample = current_sample % waveshape.size
     return np.array(samples)
 
-fs = 44100
-#genero una funcion de nº random de +-1
-wavetable_size = fs//110
-
-#wavetable = make_sine_wavetable(wavetable_size, [0.3, 0.5, 0.3], [0, 0.5, 0], [1, 3, 9])
-wavetable = (2 * np.random.randint(0, 2, wavetable_size) - 1).astype(np.float)
-#wavetable = np.ones(wavetable_size)
-sample = karplus_strong(wavetable, 5 * fs,20)
-
-
-plot_spectrogram(sample,fs)
-scipy.io.wavfile.write('test.wav',fs,sample)
 
