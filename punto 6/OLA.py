@@ -75,15 +75,15 @@ class ola:
 Fs=41000 #frecuencia de sampleo
 f=20
 timeVector= np.arange(0,1,1/Fs)
-#Audio, Fs = sf.read('guitarra.wav')
+Audio, Fs = sf.read('guitarra.wav')
 #Audio= (np.sin(2*pi*f*timeVector) + np.sin(2*50*pi*f*timeVector) + np.sin(2*100*pi*f*timeVector))/3
-Audio= np.sin(2*pi*f*timeVector)
+#Audio= np.sin(2*pi*f*timeVector)
 
 abc=ola()
 abc.run(Audio,2)
-#sd.play(abc.y,Fs)
-#sd.wait()
-#sf.write('out.wav',abc.y,Fs)
+sd.play(abc.y,Fs)
+sd.wait()
+#sf.write('speech_dobleDuracion.wav',abc.y,Fs)
 
 
 
