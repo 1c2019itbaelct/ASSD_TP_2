@@ -75,6 +75,14 @@ valores de $b\epsilon[0.1;0.6]$ se logran sonidos similares a intrumentos
 de percusión. Notese que si b=1, obtenemos el algoritmo clásico del
 sonido de guitarra.
 
+\begin{figure}[H]
+
+\begin{centering}
+\includegraphics{\string"imagenes/diagrama modelo extendido\string".png}\caption{Diagrama conceptual del modelo extendido.}
+\par\end{centering}
+\end{figure}
+
+
 \subsection{Análisis de ambos modelos}
 
 Como a cualquier filtro digital, para el algoritmo Karplus-Strong
@@ -91,6 +99,10 @@ Los polos se pueden encontrar igualando la expresión $2z^{p+1}-z-1=0$,
 mientras que existe un único cero en $z=-1$, correspondiente a la
 frecuencia de Nyquist $\frac{1}{2f_{s}}.$
 
+\begin{wrapfigure}{r}{0.5\columnwidth}%
+\centering{}\includegraphics[scale=0.5]{\string"imagenes/polos simple\string".png}\caption{Constelación de polos del modelo simple.}
+\end{wrapfigure}%
+
 Aproximando la fórmula de la expresión de los polos a $2\cdot z^{p+\frac{1}{2}}=z^{\frac{1}{2}}+z^{-\frac{1}{2}}$,
 y asumiendo que los polos son de la forma $a\cdot e^{j\omega}$, la
 expresión resultante es:
@@ -100,17 +112,17 @@ $2\cdot a^{p+\frac{1}{2}}e^{j\omega(p+\frac{1}{2})}=a^{\frac{1}{2}}e^{j\omega/2}
 
 Aproximando $e^{j\omega(p+1/2)}\approx1$, podemos despejar $\omega=\frac{2\pi n}{(p+\frac{1}{2})}$.
 Aproximando $2\cdot a^{p+1/2}\approx2cos(\frac{\omega}{2})$ podemos
-despejar el tiempo de caída del n-esimo armónico siendo $a=(cos(\frac{2\pi n}{2p+1}))^{\frac{1}{p+\frac{1}{2}}}$.
+despejar el tiempo de caída del n-esimo armónico siendo $a=(cos(\frac{2\pi n}{2p+1}))^{\frac{1}{p+\frac{1}{2}}}$. 
 
 Para el modelo de percución, necesitamos otro tipo de análisis, puesto
-que la señal que produce es aperiodica. Utilizando la probabilidad,
-podemos aproximar el valor esperado de la señal a la siguiente expresión:
-$E(Y_{n}^{2})\approx E(Y_{n-p}^{2})=2^{-\frac{n}{p}}A^{2}$, ahora
-asumiendo que $E(Y_{t}^{2})$ decae exponencialmente, entonces podemos
-llegar a que: $E(Y_{t}^{2})\approx2^{-\frac{2t}{2p+1}}\cdot A^{2}$.
-
-De esta forma, podemos expresar la función transferencia de la siguiente
+que la señal que produce es aperiodica. Descomponiendo el sistema
+en etapas, podemos expresar la función transferencia de la siguiente
 manera:
+
+\begin{wrapfigure}{l}{0.5\columnwidth}%
+\centering{}\includegraphics[scale=0.5]{\string"imagenes/polos extendido\string".png}\caption{Constelación de polos del modelo extendido.}
+\end{wrapfigure}%
+
 \begin{center}
 $H(z)=\frac{1}{1-H_{a}(z)*H_{b}(z)},con\,H_{a}(z)=\frac{1+z^{-1}}{2},H_{b}(z)=z^{-n}$
 \par\end{center}
@@ -121,7 +133,7 @@ funciones de ganancia y fase de la siguiente manera:
 $\begin{cases}
 G_{a}(f)=|cos(\frac{\omega}{4\pi f_{s}})|\\
 G_{b}(f)=1
-\end{cases}$ $\begin{cases}
+\end{cases}$ ~~~ $\begin{cases}
 P_{a}(f)=\frac{1}{2}\\
 P_{b}(f)=N
 \end{cases}$
@@ -160,6 +172,13 @@ que N es más chico, la diferencia entre N y N+0.5 es mucho más notoria,
 lo que termina manifestandose en el dibujo y empeorando la calidad
 del sonido.
 
+\begin{figure}[H]
+
+\begin{centering}
+\includegraphics[scale=0.6]{imagenes/grafico1}\caption{Gráfico de la cuantización de la frecuencia.}
+\par\end{centering}
+\end{figure}
+
 Una de las posibles soluciones a este inconveniente, es la de colocar
 un filtro pasatodo en la realimentación del sistema para aplicar un
 pequeño retardo de fase sin alterar la ganancia del mismo, el cual
@@ -190,6 +209,52 @@ a que la fase $\Phi(f)$ se puede expresar como:
 $\Phi(f)=tan(\frac{b\cdot sin(\frac{2\pi}{f_{s}}\cdot n+\pi\cdot\frac{1}{f_{s}})\cdot cos(\pi\text{·}\frac{1}{f_{s}})}{1-b\cdot cos(\frac{2\pi}{f_{s}}\text{·}n+\pi\text{·}\frac{1}{f_{s}})\text{·}cos(\pi\text{·}\frac{1}{f_{s}})}$
 \par\end{center}
 
-\subsubsection{Desventaja del modelo}
+\subsubsection{Aplicaciones del paper ``Extensions of the Karplus Strong Algorithm''}
+
+El paper realiza una serie de mejoras las cuales modifican el diseño
+del algoritmo original para perfeccionarlo y lograr un sonido aún
+más realista. Una de las series de mejoras que implementa es el filtro
+dinámico, que controla la intensidad con la que se toca una cuerda.
+Cuanto mayor es la intensidad en la misma, más energía poseen las
+frecuencias más altas, efecto que no se ve reflejado en el algoritmo
+original. Para lograrlo, se sugiere el siguiente filtro:
+\begin{center}
+$y(n)=(1-R)\cdot x(n)+R\cdot y(n-1)$
+\par\end{center}
+
+La función transferencia del filtro queda conformada:
+\begin{center}
+$H(z)=\frac{1-R}{1-R\cdot z^{-1}}$
+\par\end{center}
+
+Donde R es función de la frecuencia deseada y la longitud del arreglo
+de muestras, y puede ser aproximado a $R=e^{-\pi L}$.
+
+Otra de las mejoras que ofrece el paper, es la posibilidad de alargar
+o acortar los tiempos de decaimiento del sonido. Para acortar el tiempo
+de decaimiento, basta con multiplicar al algoritmo por una constante
+$\rho<1$, tal que $\rho=0.99\cdot\frac{1-(1000\cdot duraci\acute{o}n)^{-1}}{1+(1000\text{·}duraci\acute{o}n)^{-1}}$.
+Ahora, el sistema pasa a ser:
+\begin{center}
+$Y_{n}=\rho\cdot\frac{1}{2}\text{·}(Y_{n-p}+Y_{n-p-1})$
+\par\end{center}
+
+Si lo que se desea es alargar el tiempo de decaimiento, lo que debemos
+modificar es el lazo de realimentación dado por $H_{a}(z)$, de manera
+tal de que ahora sea $H_{a}(z)=(1-s)+s\cdot z^{-1}$, donde $0<s<1$
+es el factor de estiramiento. Con esto en cuenta, ahora la ganancia
+de lazo queda conformada:
+\begin{center}
+$G_{a}(z)=\sqrt{(1-s)^{2}+s^{2}+2s(1-s)\cdot cos(2\pi f\cdot T_{s})}$
+\par\end{center}
+
+\subsection{Conclusiones}
+
+El Algoritmo de Karplus Strong es un algoritmo fácil y rápido que
+nos permite emular el sonido de una cuerda de guitarra con mucha precisión.
+Es un modelo versatil, puesto que con menores modificaciones no solo
+se pueden lograr sonidos de otros instrumentos como los de percusión,
+sino que también es posible de mejorar la calidad del sonido que se
+sintetiza.
 
 \end{document}

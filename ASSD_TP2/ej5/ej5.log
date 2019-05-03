@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.3.27)  3 MAY 2019 09:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.3.27)  3 MAY 2019 20:34
 entering extended mode
 **./ej5.tex
 (ej5.tex
@@ -1385,7 +1385,7 @@ File: pgflibraryplotmarks.code.tex 2019/02/02 v3.1.1 (3.1.1)
 LaTeX Warning: Unused global option(s):
     [spanish].
 
-No file ej5.aux.
+(ej5.aux)
 \openout1 = `ej5.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 2.
@@ -1518,6 +1518,7 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 2.
 LaTeX Info: Redefining \pageref on input line 2.
 LaTeX Info: Redefining \nameref on input line 2.
+ (ej5.out) (ej5.out)
 \@outlinefile=\write5
 \openout5 = `ej5.out'.
 
@@ -1538,20 +1539,12 @@ ick labels; missing features). Consider writing \pgfplotsset{compat=1.16} into
 your preamble.
  on input line 2.
 
-
-LaTeX Warning: Reference `fig:Diagrama-conceptual-del' on page 1 undefined on i
-nput line 21.
-
-<imagenes/Karplus-strong-schematic.png, id=30, 1041.8925pt x 385.44pt>
+<imagenes/Karplus-strong-schematic.png, id=75, 1041.8925pt x 385.44pt>
 File: imagenes/Karplus-strong-schematic.png Graphic file (type png)
 <use imagenes/Karplus-strong-schematic.png>
 Package pdftex.def Info: imagenes/Karplus-strong-schematic.png  used on input l
 ine 24.
 (pdftex.def)             Requested size: 156.27713pt x 57.81349pt.
-
-LaTeX Warning: Reference `fig:Diagrama-conceptual-del' on page 1 undefined on i
-nput line 33.
-
 LaTeX Font Info:    Try loading font information for U+msa on input line 38.
 
 ("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
@@ -1564,29 +1557,71 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 38.
 tex/amsfonts/umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (25.349pt too wide) in paragraph at lines 84--86
+<"imagenes/diagrama modelo extendido".png, id=78, 438.63875pt x 237.88875pt>
+File: "imagenes/diagrama modelo extendido".png Graphic file (type png)
+<use "imagenes/diagrama modelo extendido".png>
+Package pdftex.def Info: "imagenes/diagrama modelo extendido".png  used on inpu
+t line 81.
+(pdftex.def)             Requested size: 438.63766pt x 237.88815pt.
+ [1
+
+{/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/data/pdftex/con
+fig/pdftex.map} <./imagenes/Karplus-strong-schematic.png>]
+Overfull \hbox (25.349pt too wide) in paragraph at lines 92--94
 []\OT1/cmr/m/n/10 Para el modelo clasico, se puede obtener la funcion transfe
 rencia Z mediante relaciones de recursion, obteniendose: 
  []
 
-[1
+<"imagenes/polos simple".png, id=98, 462.528pt x 346.896pt>
+File: "imagenes/polos simple".png Graphic file (type png)
+<use "imagenes/polos simple".png>
+Package pdftex.def Info: "imagenes/polos simple".png  used on input line 103.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 
-{/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/data/pdftex/con
-fig/pdftex.map} <./imagenes/Karplus-strong-schematic.png>]
-Overfull \hbox (7.03928pt too wide) in paragraph at lines 118--120
-[]\OT1/cmr/m/n/10 Sabiendo que $\OML/cmm/m/it/10 H\OT1/cmr/m/n/10 (\OML/cmm/m/i
-t/10 j!\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 H\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
-z \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;$ \O
-T1/cmr/m/n/10 podemos expresar las funciones de ganancia y fase de la siguiente
- manera: 
+Underfull \hbox (badness 1527) in paragraph at lines 117--121
+\OT1/cmr/m/n/10 podemos expresar la funcion transferencia de la
  []
 
-[2] [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 195.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 195.
+
+Package wrapfig Warning: Collision between wrapping environments on input line 
+122.
+
+<"imagenes/polos extendido".png, id=99, 462.528pt x 346.896pt>
+File: "imagenes/polos extendido".png Graphic file (type png)
+<use "imagenes/polos extendido".png>
+Package pdftex.def Info: "imagenes/polos extendido".png  used on input line 123
+.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 12
+7.
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 13
+0.
+
+
+Underfull \hbox (badness 1147) in paragraph at lines 130--132
+\OT1/cmr/m/n/10 expresar las funciones de ganancia y fase de la
+ []
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 13
+3.
+
+[2 <./imagenes/diagrama modelo extendido.png> <./imagenes/polos simple.png>]
+<imagenes/grafico1.png, id=111, 575.14874pt x 489.83pt>
+File: imagenes/grafico1.png Graphic file (type png)
+<use imagenes/grafico1.png>
+Package pdftex.def Info: imagenes/grafico1.png  used on input line 178.
+(pdftex.def)             Requested size: 345.0919pt x 293.90025pt.
+
+[3 <./imagenes/polos extendido.png> <./imagenes/grafico1.png>] [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 260.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 260.
  (ej5.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 195.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 195.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 260.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 260.
 
 
 Package rerunfilecheck Warning: File `ej5.out' has changed.
@@ -1594,20 +1629,14 @@ Package rerunfilecheck Warning: File `ej5.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `ej5.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  41DE2C3BC162E2C2492BE382D247C79D;852.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+(rerunfilecheck)             Before: 41DE2C3BC162E2C2492BE382D247C79D;852
+(rerunfilecheck)             After:  D6E2C1C75BD3EED75E5D391AA873BE4C;962.
  ) 
 Here is how much of TeX's memory you used:
- 41177 strings out of 494865
- 1009294 string characters out of 3176149
- 1349923 words of memory out of 3000000
- 44109 multiletter control sequences out of 15000+200000
+ 41223 strings out of 494865
+ 1010458 string characters out of 3176149
+ 1346923 words of memory out of 3000000
+ 44139 multiletter control sequences out of 15000+200000
  8719 words of font info for 33 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
  84i,13n,102p,769b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1633,9 +1662,9 @@ TeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb></Users/santiagobua
 lo/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfont
 s/cm/cmsy7.pfb></Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/
 install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ej5.pdf (3 pages, 176438 bytes).
+Output written on ej5.pdf (4 pages, 608689 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 16 named destinations out of 1000 (max. 500000)
- 114 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 180 PDF objects out of 1000 (max. 8388607)
+ 22 named destinations out of 1000 (max. 500000)
+ 222 words of extra memory for PDF output out of 10000 (max. 10000000)
 

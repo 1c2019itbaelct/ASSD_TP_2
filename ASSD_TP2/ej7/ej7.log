@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.3.27)  3 MAY 2019 20:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.3.27)  3 MAY 2019 19:22
 entering extended mode
-**./ej4.tex
-(ej4.tex
+**./ej7.tex
+(ej7.tex
 LaTeX2e <2018-12-01>
 
 ("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
@@ -1385,8 +1385,8 @@ File: pgflibraryplotmarks.code.tex 2019/02/02 v3.1.1 (3.1.1)
 LaTeX Warning: Unused global option(s):
     [spanish].
 
-(ej4.aux)
-\openout1 = `ej4.aux'.
+(ej7.aux)
+\openout1 = `ej7.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 2.
 LaTeX Font Info:    ... okay on input line 2.
@@ -1518,9 +1518,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 2.
 LaTeX Info: Redefining \pageref on input line 2.
 LaTeX Info: Redefining \nameref on input line 2.
- (ej4.out) (ej4.out)
+ (ej7.out) (ej7.out)
 \@outlinefile=\write5
-\openout5 = `ej4.out'.
+\openout5 = `ej7.out'.
 
 
 ("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
@@ -1539,108 +1539,69 @@ ick labels; missing features). Consider writing \pgfplotsset{compat=1.16} into
 your preamble.
  on input line 2.
 
-<imagenes/esquema.png, id=58, 657.45625pt x 462.72874pt>
-File: imagenes/esquema.png Graphic file (type png)
-<use imagenes/esquema.png>
-Package pdftex.def Info: imagenes/esquema.png  used on input line 16.
-(pdftex.def)             Requested size: 328.72733pt x 231.3638pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 43.
+<"imagenes/tabla".png, id=54, 747.79375pt x 447.6725pt>
+File: "imagenes/tabla".png Graphic file (type png)
+<use "imagenes/tabla".png>
+Package pdftex.def Info: "imagenes/tabla".png  used on input line 52.
+(pdftex.def)             Requested size: 448.6797pt x 268.60556pt.
 
-("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
-tex/amsfonts/umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 43.
+Overfull \hbox (6.43347pt too wide) in paragraph at lines 59--62
+[]\OT1/cmr/m/n/10 Para este punto, se genero un archivo de sonido de una escal
+a mayor de Sol, para analizar luego con el espectrograma.
+ []
 
-("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
-tex/amsfonts/umsb.fd"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+<imagenes/espectrograma.png, id=56, 462.528pt x 346.896pt>
+File: imagenes/espectrograma.png Graphic file (type png)
+<use imagenes/espectrograma.png>
+Package pdftex.def Info: imagenes/espectrograma.png  used on input line 66.
+(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
+[1
 
 {/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/data/pdftex/con
-fig/pdftex.map} <./imagenes/esquema.png>]
-<"imagenes/clarinete onda".png, id=79, 462.528pt x 346.896pt>
-File: "imagenes/clarinete onda".png Graphic file (type png)
-<use "imagenes/clarinete onda".png>
-Package pdftex.def Info: "imagenes/clarinete onda".png  used on input line 136.
+fig/pdftex.map} <./imagenes/tabla.png>]
+<"imagenes/espect_overlap 25".png, id=67, 462.528pt x 346.896pt>
+File: "imagenes/espect_overlap 25".png Graphic file (type png)
+<use "imagenes/espect_overlap 25".png>
+Package pdftex.def Info: "imagenes/espect_overlap 25".png  used on input line 7
+9.
+(pdftex.def)             Requested size: 254.39117pt x 190.79338pt.
+<"imagenes/espect_overlap 50".png, id=68, 462.528pt x 346.896pt>
+File: "imagenes/espect_overlap 50".png Graphic file (type png)
+<use "imagenes/espect_overlap 50".png>
+Package pdftex.def Info: "imagenes/espect_overlap 50".png  used on input line 7
+9.
+(pdftex.def)             Requested size: 254.39117pt x 190.79338pt.
 
-(pdftex.def)             Requested size: 346.89514pt x 260.17136pt.
-<"imagenes/espectrograma clarinetes".png, id=80, 462.528pt x 346.896pt>
-File: "imagenes/espectrograma clarinetes".png Graphic file (type png)
-<use "imagenes/espectrograma clarinetes".png>
-Package pdftex.def Info: "imagenes/espectrograma clarinetes".png  used on input
- line 139.
-(pdftex.def)             Requested size: 346.89514pt x 260.17136pt.
- [2]
-<"imagenes/campana onda".png, id=88, 462.528pt x 346.896pt>
-File: "imagenes/campana onda".png Graphic file (type png)
-<use "imagenes/campana onda".png>
-Package pdftex.def Info: "imagenes/campana onda".png  used on input line 164.
-(pdftex.def)             Requested size: 346.89514pt x 260.17136pt.
-<imagenes/Figure_1.png, id=89, 462.528pt x 346.896pt>
-File: imagenes/Figure_1.png Graphic file (type png)
-<use imagenes/Figure_1.png>
-Package pdftex.def Info: imagenes/Figure_1.png  used on input line 166.
-(pdftex.def)             Requested size: 346.89514pt x 260.17136pt.
- [3 <./imagenes/clarinete onda.png> <./imagenes/espectrograma clarinetes.png>]
-<"imagenes/espectograma violin".png, id=98, 462.528pt x 346.896pt>
-File: "imagenes/espectograma violin".png Graphic file (type png)
-<use "imagenes/espectograma violin".png>
-Package pdftex.def Info: "imagenes/espectograma violin".png  used on input line
- 183.
-(pdftex.def)             Requested size: 346.89514pt x 260.17136pt.
- [4 <./imagenes/campana onda.png> <./imagenes/Figure_1.png>] [5 <./imagenes/esp
-ectograma violin.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
- (ej4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 190.
+Overfull \hbox (8.29836pt too wide) in paragraph at lines 79--79
+ [][][] 
+ []
 
-
-Package rerunfilecheck Warning: File `ej4.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `ej4.out':
-(rerunfilecheck)             Before: 2EE6D6C3053EF371E8B0134DA87DBF8D;527
-(rerunfilecheck)             After:  03BB185BCFA8818264F030E12671F4EC;588.
+[2 <./imagenes/espectrograma.png> <./imagenes/espect_overlap 25.png> <./imagene
+s/espect_overlap 50.png>] [3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 93.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 93.
+ (ej7.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
+Package rerunfilecheck Info: File `ej7.out' has not changed.
+(rerunfilecheck)             Checksum: F102DFD86CA804BA3AFFE5C0AD4E0C21;456.
  ) 
 Here is how much of TeX's memory you used:
- 41260 strings out of 494865
- 1010789 string characters out of 3176149
- 1345923 words of memory out of 3000000
- 44167 multiletter control sequences out of 15000+200000
- 16800 words of font info for 63 fonts, out of 3000000 for 9000
+ 41162 strings out of 494865
+ 1009164 string characters out of 3176149
+ 1342923 words of memory out of 3000000
+ 44107 multiletter control sequences out of 15000+200000
+ 5185 words of font info for 19 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 84i,10n,102p,769b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 84i,7n,102p,769b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
  </Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/data/fonts/p
-k/ljfour/jknappen/ec/dpi600/tcrm1440.pk> </Users/santiagobualo/Library/Applicat
-ion Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk><
-/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/fonts/ty
-pe1/public/amsfonts/cm/cmbx10.pfb></Users/santiagobualo/Library/Application Sup
-port/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/sa
-ntiagobualo/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/publi
-c/amsfonts/cm/cmex10.pfb></Users/santiagobualo/Library/Application Support/MiKT
-eX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/santiagobua
-lo/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfont
-s/cm/cmmi12.pfb></Users/santiagobualo/Library/Application Support/MiKTeX/texmfs
-/install/fonts/type1/public/amsfonts/cm/cmmi5.pfb></Users/santiagobualo/Library
-/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7
-.pfb></Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/fo
-nts/type1/public/amsfonts/cm/cmmi8.pfb></Users/santiagobualo/Library/Applicatio
-n Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></User
-s/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb></Users/santiagobualo/Library/Application Support/M
-iKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/santiagobu
-alo/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/
-install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/santiagobualo/Library
-/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7
-.pfb>
-Output written on ej4.pdf (5 pages, 447028 bytes).
+k/ljfour/jknappen/ec/dpi600/tcrm1000.pk></Users/santiagobualo/Library/Applicati
+on Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Us
+ers/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/fonts/type1
+/public/amsfonts/cm/cmr10.pfb>
+Output written on ej7.pdf (3 pages, 311109 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
- 195 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 99 PDF objects out of 1000 (max. 8388607)
+ 13 named destinations out of 1000 (max. 500000)
+ 177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
