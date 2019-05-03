@@ -28,45 +28,54 @@ def make_fft(sign):  # makes fft of the signal and returns the module of the fft
     return fft_signal_module, freq
 
 
-def synthesizer(file):
+def synthesizer(file, frecuency, duration):
     fs, sign, time = get_file(file)
 
-    signal_peak = signal.find_peaks(sign, 0, None, 1500)  # finds signal peaks
-    x_new = np.arange(0, time[len(time) - 1], 1 / fs)  # and interpolates them
-    interpolated = interpolate.spline(time[signal_peak[0]], signal_peak[1]['peak_heights'], x_new)  #
+    signal_peak = signal.find_peaks(sign, 0, None, len(sign)/50)  # finds signal peaks
+    x_new = np.arange(0, duration, 1 / fs)  # and interpolates them
+    interpolated = interpolate.spline(time[signal_peak[0]] * duration/time[len(time)-1], signal_peak[1]['peak_heights'], x_new)  #
 
     fft_signal_module, freq = make_fft(sign)  # makes fft
     fft_peaks = signal.find_peaks(fft_signal_module[:int((len(fft_signal_module) - 1))], 1)  # and finds
+    freq_sumator = frecuency - freq[fft_peaks[0][0]] * fs
     fft_peaks = signal.find_peaks(fft_signal_module[:int((len(fft_signal_module) - 1))], 0.01, None,
-                                  freq[fft_peaks[0]] * fs)  # its peaks
-
+                                  freq[fft_peaks[0][0]] * fs)  # its peaks
+    print(fft_peaks[0])
+    freq_peaks = np.delete(fft_peaks[0], 0)
+    fft_peaks_new = np.delete(fft_peaks[1]['peak_heights'], 0)
+    print(freq_peaks)
     length = 0
-    num = np.arange(0, time[len(time) - 1], 1 / fs)
+    num = np.arange(0, duration, 1 / fs)
     final_signal = 0
 
-    while length <= len(fft_peaks[
-                            0]) - 1:  # hace la suma de las senoidales en cada frecuencia con su respectivo modulo, ademas a cada senoidal se la multiplica por la envolvente
-        seno = fft_peaks[1]['peak_heights'][length] * np.sin(2 * np.pi * num * freq[fft_peaks[0][length]] * fs)
+    while length <= len(freq_peaks) - 1:  # hace la suma de las senoidales en cada frecuencia con su respectivo modulo, ademas a cada senoidal se la multiplica por la envolvente
+        seno = fft_peaks_new[length] * np.sin(2 * np.pi * num * ((length+1) * freq_sumator + freq[freq_peaks[length]] * fs))
         final_signal = final_signal + interpolated * seno
         length = length + 1
 
     final_signal = final_signal / max([max(final_signal), abs(min(final_signal))])  # normalizo la salida
     wavfile.write("sample.wav", fs, final_signal)
 
-    # plt.xlim(0, 20000)
-    # plt.plot(freq * fs, fft_signal_module, 'k')
-    # plt.scatter(freq[fft_peaks[0]] * fs, fft_peaks[1]['peak_heights'])
-    # plt.show()
-    #
-    # plt.plot(time, sign, 'r')
-    # plt.show()
-    #
-    # plt.plot(x_new, interpolated)
-    # plt.show()
-    #
-    # plt.plot(num, final_signal, 'k')
-    # plt.show()
+    hola, chau = make_fft(final_signal)
+
+    plt.xlim(0, 20000)
+    plt.plot(freq * fs, fft_signal_module, 'k')
+    plt.scatter(freq[freq_peaks] * fs, fft_peaks_new)
+    plt.show()
+
+    plt.xlim(0, 5000)
+    plt.plot(chau * fs, hola, 'k')
+    plt.show()
+
+    plt.plot(time, sign, 'r')
+    plt.show()
+
+    plt.plot(x_new, interpolated)
+    plt.show()
+
+    plt.plot(num, final_signal, 'k')
+    plt.show()
 
 
 if __name__ == "__main__":
-    synthesizer("cello_A3_15_mezzo-piano_arco-normal (1).wav")
+    synthesizer("cello_Cs4_15_mezzo-piano_arco-normal.wav", 440, 2.5)
