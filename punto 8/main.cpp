@@ -3,12 +3,14 @@
 #include "portaudio.h"
 #include "set_eco_simple.h"
 #include "set_eco_plano.h"
+#include "set_eco_all_pass.h"
+#include "eco_completo.h"
 #include "set_robot.h"
 #include "set_flanger.h"
 
 #define PA_SAMPLE_TYPE      paFloat32
 
-typedef enum {ECO_SIMPLE,ECO_PLANO,ECO_LP,ECO_COMPLETO,ECO_CONV,FLANGER,ROBOT,GIRO_3D,VIBRATO}effect_type_t;
+typedef enum {ECO_SIMPLE,ECO_PLANO,ECO_LP,ECO_ALLPASS,ECO_COMPLETO,ECO_CONV,FLANGER,ROBOT,GIRO_3D,VIBRATO}effect_type_t;
 
 using namespace std;
 
@@ -58,8 +60,12 @@ int main(void)
             err = set_eco_plano(stream,inputParameters, outputParameters,err);
             break;
         case ECO_COMPLETO:
+            err = set_eco_completo(stream,inputParameters, outputParameters,err);
             break;
         case ECO_LP:
+            break;
+        case ECO_ALLPASS:
+            err = set_eco_all_pass(stream,inputParameters, outputParameters,err);
             break;
         case ECO_CONV:
             break;
