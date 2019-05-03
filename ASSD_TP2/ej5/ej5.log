@@ -1,0 +1,1641 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.3.27)  3 MAY 2019 09:29
+entering extended mode
+**./ej5.tex
+(ej5.tex
+LaTeX2e <2018-12-01>
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/subfiles/subfiles.cls"
+Document Class: subfiles 2018/07/31 Federico Garcia, Gernot Salzer
+Preamble taken from file `../ASSD_TP2.tex'
+(../ASSD_TP2.tex
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/base/article.cls"
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/base/size10.clo"
+File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (../extra/preamble.tex
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/graphics/graphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/graphics/keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/graphics/graphics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/graphics/trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/graphics-cfg/graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/graphics-def/pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/subfig/subfig.sty"
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/caption/caption.sty"
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/caption/caption3.sty"
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen105
+\captionmargin@=\dimen106
+\captionwidth=\dimen107
+\caption@tempdima=\dimen108
+\caption@indent=\dimen109
+\caption@parindent=\dimen110
+\caption@hangindent=\dimen111
+)
+\c@caption@flags=\count88
+\c@ContinuedFloat=\count89
+)
+\c@KVtest=\count90
+\sf@farskip=\skip43
+\sf@captopadj=\dimen112
+\sf@capskip=\skip44
+\sf@nearskip=\skip45
+\c@subfigure=\count91
+\c@subfigure@save=\count92
+\c@lofdepth=\count93
+\c@subtable=\count94
+\c@subtable@save=\count95
+\c@lotdepth=\count96
+\sf@top=\skip46
+\sf@bottom=\skip47
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/subfiles/subfiles.sty"
+Package: subfiles 2018/07/31 Federico Garcia, Gernot Salzer
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/tools/verbatim.sty"
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks15
+\verbatim@line=\toks16
+\verbatim@in@stream=\read1
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/float/float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count97
+\float@exts=\toks17
+\float@box=\box27
+\@float@everytoks=\toks18
+\@floatcapt=\box28
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/listings/listings.sty"
+\lst@mode=\count98
+\lst@gtempboxa=\box29
+\lst@token=\toks19
+\lst@length=\count99
+\lst@currlwidth=\dimen113
+\lst@column=\count100
+\lst@pos=\count101
+\lst@lostspace=\dimen114
+\lst@width=\dimen115
+\lst@newlines=\count102
+\lst@lineno=\count103
+\lst@maxwidth=\dimen116
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/listings/lstmisc.sty"
+File: lstmisc.sty 2019/02/27 1.8b (Carsten Heinz)
+\c@lstnumber=\count104
+\lst@skipnumbers=\count105
+\lst@framebox=\box30
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/listings/listings.cfg"
+File: listings.cfg 2019/02/27 1.8b listings configuration
+))
+Package: listings 2019/02/27 1.8b (Carsten Heinz)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/nomencl/nomencl.sty"
+Package: nomencl 2019/02/08 v5.1 Nomenclature package
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/xkeyval/xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/xkeyval/xkeyval.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/xkeyval/xkvutils.tex"
+\XKV@toks=\toks20
+\XKV@tempa@toks=\toks21
+)
+\XKV@depth=\count106
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/base/ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/koma-script/tocbasic.sty"
+Package: tocbasic 2019/02/01 v3.26b KOMA-Script package (handling toc-files)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/koma-script/scrbase.sty"
+Package: scrbase 2019/02/01 v3.26b KOMA-Script package (KOMA-Script-independent
+ basics and keyval usage)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/koma-script/scrlfile.sty"
+Package: scrlfile 2019/02/01 v3.26b KOMA-Script package (loading files)
+))
+\scr@dte@tocline@numberwidth=\skip48
+\scr@dte@tocline@numbox=\box31
+)
+Package tocbasic Info: setting babel extension for `nlo' on input line 24.
+Package tocbasic Info: setting babel extension for `nls' on input line 25.
+\nomlabelwidth=\dimen117
+\nom@tempdim=\dimen118
+\nomitemsep=\skip49
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/makecell/makecell.sty"
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/tools/array.sty"
+Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
+\col@sep=\dimen119
+\ar@mcellbox=\box32
+\extrarowheight=\dimen120
+\NC@list=\toks22
+\extratabsurround=\skip50
+\backup@length=\skip51
+\ar@cellbox=\box33
+)
+\rotheadsize=\dimen121
+\c@nlinenum=\count107
+\TeXr@lab=\toks23
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/amsmath/amsmath.sty"
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip52
+
+For additional information on amsmath, use the `?' option.
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/amsmath/amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/amsmath/amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks24
+\ex@=\dimen122
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/amsmath/amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen123
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/amsmath/amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count108
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count109
+\leftroot@=\count110
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count111
+\DOTSCASE@=\count112
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box34
+\strutbox@=\box35
+\big@size=\dimen124
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count113
+\c@MaxMatrixCols=\count114
+\dotsspace@=\muskip10
+\c@parentequation=\count115
+\dspbrk@lvl=\count116
+\tag@help=\toks25
+\row@=\count117
+\column@=\count118
+\maxfields@=\count119
+\andhelp@=\toks26
+\eqnshift@=\dimen125
+\alignsep@=\dimen126
+\tagshift@=\dimen127
+\tagwidth@=\dimen128
+\totwidth@=\dimen129
+\lineht@=\dimen130
+\@envbody=\toks27
+\multlinegap=\skip53
+\multlinetaggap=\skip54
+\mathdisplay@stack=\toks28
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/amsfonts/amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/amsfonts/amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/was/upgreek.sty"
+Package: upgreek 2003/02/12 v2.0 (WaS)
+Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
+\symugrf@m=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
+(Font)                  U/eur/m/n --> U/eur/b/n on input line 38.
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/steinmetz/steinmetz.sty"
+Package: steinmetz 2009/06/14 v1.0 Steinmetz symbol for electrotechnics
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pict2e/pict2e.sty"
+Package: pict2e 2016/02/05 v0.3b Improved picture commands (HjG,RN,JT)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pict2e/pict2e.cfg"
+File: pict2e.cfg 2016/02/05 v0.1u pict2e configuration for teTeX/TeXLive
+)
+Package pict2e Info: Driver file: pdftex.def on input line 119.
+Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 121.
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pict2e/p2e-pdftex.def"
+File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
+)
+\pIIe@GRAPH=\toks29
+\@arclen=\dimen131
+\@arcrad=\dimen132
+\@tempdimd=\dimen133
+)
+\stm@phasebox=\box36
+\stm@phasedp=\skip55
+\stm@phaseht=\skip56
+\stm@phasetot=\skip57
+\stm@phasewd=\skip58
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/mathtools/mathtools.sty"
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/tools/calc.sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count120
+\calc@Bcount=\count121
+\calc@Adimen=\dimen134
+\calc@Bdimen=\dimen135
+\calc@Askip=\skip59
+\calc@Bskip=\skip60
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count122
+\calc@Cskip=\skip61
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/mathtools/mhsetup.sty"
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count123
+\l_MT_multwidth_dim=\dimen136
+\origjot=\skip62
+\l_MT_shortvdotswithinadjustabove_dim=\dimen137
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen138
+\l_MT_above_intertext_sep=\dimen139
+\l_MT_below_intertext_sep=\dimen140
+\l_MT_above_shortintertext_sep=\dimen141
+\l_MT_below_shortintertext_sep=\dimen142
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/placeins/placeins.sty"
+Package: placeins 2005/04/18  v 2.2
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/geometry/geometry.sty"
+Package: geometry 2018/04/16 v5.8 Page Geometry
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/oberdiek/ifpdf.sty"
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/oberdiek/ifvtex.sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/ifxetex/ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count124
+\Gm@cntv=\count125
+\c@Gm@tempcnt=\count126
+\Gm@bindingoffset=\dimen143
+\Gm@wd@mp=\dimen144
+\Gm@odd@mp=\dimen145
+\Gm@even@mp=\dimen146
+\Gm@layoutwidth=\dimen147
+\Gm@layoutheight=\dimen148
+\Gm@layouthoffset=\dimen149
+\Gm@layoutvoffset=\dimen150
+\Gm@dimlist=\toks30
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/geometry/geometry.cfg"))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/xcolor/xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/graphics-cfg/color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/circuitikz/circuitikz.sty"
+Package: circuitikz 2017/05/28{} The CircuiTikz circuit drawing package version
+ 0.8.3
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pgf/frontendlayer/tikz.sty"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pgf/basiclayer/pgf.sty"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pgf/utilities/pgfrcs.sty"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/utilities/pgfutil-common.tex"
+\pgfutil@everybye=\toks31
+\pgfutil@tempdima=\dimen151
+\pgfutil@tempdimb=\dimen152
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/utilities/pgfutil-common-lists.tex"))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/utilities/pgfutil-latex.def"
+\pgfutil@abb=\box37
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/ms/everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/utilities/pgfrcs.code.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/pgf.revision.tex")
+Package: pgfrcs 2019/02/02 v3.1.1 (3.1.1)
+))
+Package: pgf 2019/02/02 v3.1.1 (3.1.1)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pgf/basiclayer/pgfcore.sty"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pgf/systemlayer/pgfsys.sty"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/systemlayer/pgfsys.code.tex"
+Package: pgfsys 2019/02/02 v3.1.1 (3.1.1)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/utilities/pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks32
+\pgfkeys@temptoks=\toks33
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/utilities/pgfkeysfiltered.code.tex"
+\pgfkeys@tmptoks=\toks34
+))
+\pgf@x=\dimen153
+\pgf@y=\dimen154
+\pgf@xa=\dimen155
+\pgf@ya=\dimen156
+\pgf@xb=\dimen157
+\pgf@yb=\dimen158
+\pgf@xc=\dimen159
+\pgf@yc=\dimen160
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count127
+\c@pgf@countb=\count128
+\c@pgf@countc=\count129
+\c@pgf@countd=\count130
+\t@pgf@toka=\toks35
+\t@pgf@tokb=\toks36
+\t@pgf@tokc=\toks37
+\pgf@sys@id@count=\count131
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/systemlayer/pgf.cfg"
+File: pgf.cfg 2019/02/02 v3.1.1 (3.1.1)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/systemlayer/pgfsys-pdftex.def"
+File: pgfsys-pdftex.def 2019/02/02 v3.1.1 (3.1.1)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/systemlayer/pgfsys-common-pdf.def"
+File: pgfsys-common-pdf.def 2019/02/02 v3.1.1 (3.1.1)
+)))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/systemlayer/pgfsyssoftpath.code.tex"
+File: pgfsyssoftpath.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfsyssoftpath@smallbuffer@items=\count132
+\pgfsyssoftpath@bigbuffer@items=\count133
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/systemlayer/pgfsysprotocol.code.tex"
+File: pgfsysprotocol.code.tex 2019/02/02 v3.1.1 (3.1.1)
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcore.code.tex"
+Package: pgfcore 2019/02/02 v3.1.1 (3.1.1)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmath.code.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathcalc.code.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathutil.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathparser.code.tex"
+\pgfmath@dimen=\dimen161
+\pgfmath@count=\count134
+\pgfmath@box=\box38
+\pgfmath@toks=\toks38
+\pgfmath@stack@operand=\toks39
+\pgfmath@stack@operation=\toks40
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathfunctions.code.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathfunctions.basic.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathfunctions.trigonometric.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathfunctions.random.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathfunctions.comparison.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathfunctions.base.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathfunctions.round.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathfunctions.misc.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathfunctions.integerarithmetics.code.tex")))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmathfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count135
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcorepoints.code.tex"
+File: pgfcorepoints.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgf@picminx=\dimen162
+\pgf@picmaxx=\dimen163
+\pgf@picminy=\dimen164
+\pgf@picmaxy=\dimen165
+\pgf@pathminx=\dimen166
+\pgf@pathmaxx=\dimen167
+\pgf@pathminy=\dimen168
+\pgf@pathmaxy=\dimen169
+\pgf@xx=\dimen170
+\pgf@xy=\dimen171
+\pgf@yx=\dimen172
+\pgf@yy=\dimen173
+\pgf@zx=\dimen174
+\pgf@zy=\dimen175
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcorepathconstruct.code.tex"
+File: pgfcorepathconstruct.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgf@path@lastx=\dimen176
+\pgf@path@lasty=\dimen177
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcorepathusage.code.tex"
+File: pgfcorepathusage.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgf@shorten@end@additional=\dimen178
+\pgf@shorten@start@additional=\dimen179
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcorescopes.code.tex"
+File: pgfcorescopes.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfpic=\box39
+\pgf@hbox=\box40
+\pgf@layerbox@main=\box41
+\pgf@picture@serial@count=\count136
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcoregraphicstate.code.tex"
+File: pgfcoregraphicstate.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgflinewidth=\dimen180
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcoretransformations.code.tex"
+File: pgfcoretransformations.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgf@pt@x=\dimen181
+\pgf@pt@y=\dimen182
+\pgf@pt@temp=\dimen183
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcorequick.code.tex"
+File: pgfcorequick.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcoreobjects.code.tex"
+File: pgfcoreobjects.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcorepathprocessing.code.tex"
+File: pgfcorepathprocessing.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcorearrows.code.tex"
+File: pgfcorearrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfarrowsep=\dimen184
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcoreshade.code.tex"
+File: pgfcoreshade.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgf@max=\dimen185
+\pgf@sys@shading@range@num=\count137
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcoreimage.code.tex"
+File: pgfcoreimage.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcoreexternal.code.tex"
+File: pgfcoreexternal.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfexternal@startupbox=\box42
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcorelayers.code.tex"
+File: pgfcorelayers.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcoretransparency.code.tex"
+File: pgfcoretransparency.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcorepatterns.code.tex"
+File: pgfcorepatterns.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/basiclayer/pgfcorerdf.code.tex"
+File: pgfcorerdf.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/modules/pgfmoduleshapes.code.tex"
+File: pgfmoduleshapes.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfnodeparttextbox=\box43
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/modules/pgfmoduleplot.code.tex"
+File: pgfmoduleplot.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pgf/compatibility/pgfcomp-version-0-65.sty"
+Package: pgfcomp-version-0-65 2019/02/02 v3.1.1 (3.1.1)
+\pgf@nodesepstart=\dimen186
+\pgf@nodesepend=\dimen187
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pgf/compatibility/pgfcomp-version-1-18.sty"
+Package: pgfcomp-version-1-18 2019/02/02 v3.1.1 (3.1.1)
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pgf/utilities/pgffor.sty"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pgf/utilities/pgfkeys.sty"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/utilities/pgfkeys.code.tex"))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pgf/math/pgfmath.sty"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmath.code.tex"))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/utilities/pgffor.code.tex"
+Package: pgffor 2019/02/02 v3.1.1 (3.1.1)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/math/pgfmath.code.tex")
+\pgffor@iter=\dimen188
+\pgffor@skip=\dimen189
+\pgffor@stack=\toks41
+\pgffor@toks=\toks42
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/frontendlayer/tikz/tikz.code.tex"
+Package: tikz 2019/02/02 v3.1.1 (3.1.1)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/libraries/pgflibraryplothandlers.code.tex"
+File: pgflibraryplothandlers.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgf@plot@mark@count=\count138
+\pgfplotmarksize=\dimen190
+)
+\tikz@lastx=\dimen191
+\tikz@lasty=\dimen192
+\tikz@lastxsaved=\dimen193
+\tikz@lastysaved=\dimen194
+\tikzleveldistance=\dimen195
+\tikzsiblingdistance=\dimen196
+\tikz@figbox=\box44
+\tikz@figbox@bg=\box45
+\tikz@tempbox=\box46
+\tikz@tempbox@bg=\box47
+\tikztreelevel=\count139
+\tikznumberofchildren=\count140
+\tikznumberofcurrentchild=\count141
+\tikz@fig@count=\count142
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/modules/pgfmodulematrix.code.tex"
+File: pgfmodulematrix.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfmatrixcurrentrow=\count143
+\pgfmatrixcurrentcolumn=\count144
+\pgf@matrix@numberofcolumns=\count145
+)
+\tikz@expandcount=\count146
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex"
+File: tikzlibrarycalc.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/libraries/pgflibraryarrows.code.tex"
+File: pgflibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\arrowsize=\dimen197
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/circuitikz/pgfcirc.defines.tex"
+\pgf@circ@res@up=\dimen198
+\pgf@circ@res@down=\dimen199
+\pgf@circ@res@zero=\dimen256
+\pgf@circ@res@left=\dimen257
+\pgf@circ@res@right=\dimen258
+\pgf@circ@res@other=\dimen259
+\pgf@circ@res@step=\dimen260
+\pgf@circ@res@temp=\dimen261
+\pgfstartlinewidth=\dimen262
+\pgf@circ@Rlen=\dimen263
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/circuitikz/pgfcircutils.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/circuitikz/pgfcircshapes.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/circuitikz/pgfcircmonopoles.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/circuitikz/pgfcircbipoles.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/circuitikz/pgfcirctripoles.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/circuitikz/pgfcircquadpoles.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/circuitikz/pgfcirclabel.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/circuitikz/pgfcircvoltage.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/circuitikz/pgfcirccurrent.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/circuitikz/pgfcircflow.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/circuitikz/pgfcircpath.tex"))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/parskip/parskip.sty"
+Package: parskip 2019-01-16 v2.0c non-zero parskip adjustments
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/oberdiek/kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/oberdiek/ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/oberdiek/kvsetkeys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/oberdiek/infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/oberdiek/etexcmds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/oberdiek/ifluatex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+))))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/etoolbox/etoolbox.sty"
+Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count147
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/tools/indentfirst.sty"
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/was/gensymb.sty"
+Package: gensymb 2003/07/02 v1.0 (WaS)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/base/textcomp.sty"
+Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/base/ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/base/ts1enc.dfu"
+File: ts1enc.dfu 2018/10/05 v1.2f UTF-8 support for inputenc
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+   defining Unicode char U+FEFF (decimal 65279)
+))
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/hyperref/hyperref.sty"
+Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/oberdiek/hobsub-hyperref.sty"
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/oberdiek/hobsub-generic.sty"
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package hobsub Info: Skipping package `ifluatex' (already loaded).
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package hobsub Info: Skipping package `etexcmds' (already loaded).
+Package hobsub Info: Skipping package `kvsetkeys' (already loaded).
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/oberdiek/auxhook.sty"
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+
+
+Package auxhook Warning: Cannot patch \document,
+(auxhook)                using \AtBeginDocument instead.
+
+)
+\@linkdim=\dimen264
+\Hy@linkcounter=\count148
+\Hy@pagecounter=\count149
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/hyperref/pd1enc.def"
+File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count150
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/00miktex/hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4519.
+Package hyperref Info: Link nesting OFF on input line 4524.
+Package hyperref Info: Hyper index ON on input line 4527.
+Package hyperref Info: Plain pages OFF on input line 4534.
+Package hyperref Info: Backreferencing OFF on input line 4539.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4772.
+\c@Hy@tempcnt=\count151
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/url/url.sty"
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5125.
+\XeTeXLinkMargin=\dimen265
+\Fld@menulength=\count152
+\Field@Width=\dimen266
+\Fld@charsize=\dimen267
+Package hyperref Info: Hyper figures OFF on input line 6380.
+Package hyperref Info: Link nesting OFF on input line 6385.
+Package hyperref Info: Hyper index ON on input line 6388.
+Package hyperref Info: backreferencing OFF on input line 6395.
+Package hyperref Info: Link coloring OFF on input line 6400.
+Package hyperref Info: Link coloring with OCG OFF on input line 6405.
+Package hyperref Info: PDF/A mode OFF on input line 6410.
+LaTeX Info: Redefining \ref on input line 6450.
+LaTeX Info: Redefining \pageref on input line 6454.
+\Hy@abspage=\count153
+\c@Item=\count154
+\c@Hfootnote=\count155
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/hyperref/hpdftex.def"
+File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
+\Fld@listcount=\count156
+\c@bookmark@seq@number=\count157
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/oberdiek/rerunfilecheck.sty"
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip63
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pdfpages/pdfpages.sty"
+Package: pdfpages 2017/10/31 v0.5l Insert pages of external PDF documents (AM)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/eso-pic/eso-pic.sty"
+Package: eso-pic 2018/04/12 v2.0h eso-pic (RN)
+)
+\AM@pagewidth=\dimen268
+\AM@pageheight=\dimen269
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pdfpages/pppdftex.def"
+File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box48
+\AM@global@opts=\toks43
+\AM@toc@title=\toks44
+\c@AM@survey=\count158
+\AM@templatesizebox=\box49
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/csvsimple/csvsimple.sty"
+Package: csvsimple 2016/07/01 version 1.20 LaTeX CSV file processing
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/tools/shellesc.sty"
+Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 69.
+)
+\csv@file=\read3
+\c@csvinputline=\count159
+\c@csvrow=\count160
+\c@csvcol=\count161
+\csv@out=\write4
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/adjustbox/adjustbox.sty"
+Package: adjustbox 2019/01/04 v1.2 Adjusting TeX boxes (trim, clip, ...)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/adjustbox/adjcalc.sty"
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/adjustbox/trimclip.sty"
+Package: trimclip 2018/04/08 v1.1 Trim and clip general TeX material
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/collectbox/collectbox.sty"
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box50
+)
+\tc@llx=\dimen270
+\tc@lly=\dimen271
+\tc@urx=\dimen272
+\tc@ury=\dimen273
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/adjustbox/tc-pdftex.def"
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen274
+\adjbox@Height=\dimen275
+\adjbox@Depth=\dimen276
+\adjbox@Totalheight=\dimen277
+\adjbox@pwidth=\dimen278
+\adjbox@pheight=\dimen279
+\adjbox@pdepth=\dimen280
+\adjbox@ptotalheight=\dimen281
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/ifoddpage/ifoddpage.sty"
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count162
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/varwidth/varwidth.sty"
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box51
+\sift@deathcycles=\count163
+\@vwid@loff=\dimen282
+\@vwid@roff=\dimen283
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/slashbox/slashbox.sty"
+slashbox style by K.Yasuoka, May 1993.
+\@slashboxa=\box52
+\@slashboxb=\box53
+\@slashboxc=\box54
+\@slashboxwd=\count164
+\@slashboxht=\count165
+\@slashsepl=\dimen284
+\@slashsepr=\dimen285
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/units/units.sty"
+Package: units 1998/08/04 v0.9b Typesetting units
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/units/nicefrac.sty"
+Package: nicefrac 1998/08/04 v0.9b Nice fractions
+\L@UnitsRaiseDisplaystyle=\skip64
+\L@UnitsRaiseTextstyle=\skip65
+\L@UnitsRaiseScriptstyle=\skip66
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/sttools/stfloats.sty"
+Package: stfloats 2017/03/27 v3.3 Improve float mechanism and baselineskip sett
+ings
+\@dblbotnum=\count166
+\c@dblbotnumber=\count167
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/tools/longtable.sty"
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
+\LTleft=\skip67
+\LTright=\skip68
+\LTpre=\skip69
+\LTpost=\skip70
+\LTchunksize=\count168
+\LTcapwidth=\dimen286
+\LT@head=\box55
+\LT@firsthead=\box56
+\LT@foot=\box57
+\LT@lastfoot=\box58
+\LT@cols=\count169
+\LT@rows=\count170
+\c@LT@tables=\count171
+\c@LT@chunks=\count172
+\LT@p@ftn=\toks45
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/wrapfig/wrapfig.sty"
+\wrapoverhang=\dimen287
+\WF@size=\dimen288
+\c@WF@wrappedlines=\count173
+\WF@box=\box59
+\WF@everypar=\toks46
+Package: wrapfig 2003/01/31  v 3.6
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/todonotes/todonotes.sty"
+Package: todonotes 2019/01/24 v1.1.2 Todonotes source and documentation.
+Package: todonotes 2018/11/22
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex"
+File: tikzlibrarypositioning.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/frontendlayer/tikz/libraries/tikzlibraryshadows.code.tex"
+File: tikzlibraryshadows.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex"
+File: tikzlibraryfadings.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/libraries/pgflibraryfadings.code.tex"
+File: pgflibraryfadings.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)))
+\c@@todonotes@numberoftodonotes=\count174
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/pgfplots/pgfplots.sty"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplots.revision.tex")
+Package: pgfplots 2018/03/28 v1.16 Data Visualization (1.16)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplots.code.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplotscore.code.tex"
+\t@pgfplots@toka=\toks47
+\t@pgfplots@tokb=\toks48
+\t@pgfplots@tokc=\toks49
+\pgfplots@tmpa=\dimen289
+\c@pgfplots@coordindex=\count175
+\c@pgfplots@scanlineindex=\count176
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/sys/pgfplotssysgeneric.code.tex"))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/libs/pgfplotslibrary.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/libraries/pgflibraryfpu.code.tex")
+Package pgfplots: loading complementary arithmetics for your pgf version...
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgflibraryfpu.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfmathfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count177
+))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/util/pgfplotsutil.code.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/liststructure/pgfplotsliststructure.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/liststructure/pgfplotsliststructureext.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/liststructure/pgfplotsarray.code.tex"
+\c@pgfplotsarray@tmp=\count178
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/liststructure/pgfplotsmatrix.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/numtable/pgfplotstableshared.code.tex"
+\c@pgfplotstable@counta=\count179
+\t@pgfplotstable@a=\toks50
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/liststructure/pgfplotsdeque.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/util/pgfplotsbinary.code.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/util/pgfplotsbinary.data.code.tex"))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/util/pgfplotsutil.verb.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex"
+\c@pgfplotslibrarysurf@no=\count180
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def")))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/util/pgfplotscolormap.code.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/util/pgfplotscolor.code.tex"))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplotsstackedplots.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplotsplothandlers.code.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplotsmeshplothandler.code.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplotsmeshplotimage.code.tex")))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplots.scaling.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplotscoordprocessing.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplots.errorbars.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplots.markers.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplotsticks.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgfplots/pgfplots.paths.code.tex")
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/modules/pgfmoduledecorations.code.tex"
+\pgfdecoratedcompleteddistance=\dimen290
+\pgfdecoratedremainingdistance=\dimen291
+\pgfdecoratedinputsegmentcompleteddistance=\dimen292
+\pgfdecoratedinputsegmentremainingdistance=\dimen293
+\pgf@decorate@distancetomove=\dimen294
+\pgf@decorate@repeatstate=\count181
+\pgfdecorationsegmentamplitude=\dimen295
+\pgfdecorationsegmentlength=\dimen296
+)
+\tikz@lib@dec@box=\box60
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code
+.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex"))
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.cod
+e.tex"
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex"))
+\pgfplots@numplots=\count182
+\pgfplots@xmin@reg=\dimen297
+\pgfplots@xmax@reg=\dimen298
+\pgfplots@ymin@reg=\dimen299
+\pgfplots@ymax@reg=\dimen300
+\pgfplots@zmin@reg=\dimen301
+\pgfplots@zmax@reg=\dimen302
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex"
+File: tikzlibraryplotmarks.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/pgf/libraries/pgflibraryplotmarks.code.tex"
+File: pgflibraryplotmarks.code.tex 2019/02/02 v3.1.1 (3.1.1)
+))))))
+
+LaTeX Warning: Unused global option(s):
+    [spanish].
+
+No file ej5.aux.
+\openout1 = `ej5.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 2.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 2.
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/base/ts1cmr.fd"
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/co
+ntext/base/mkii/supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count183
+\scratchdimen=\dimen303
+\scratchbox=\box61
+\nofMPsegments=\count184
+\nofMParguments=\count185
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count186
+\MPscratchDim=\dimen304
+\MPnumerator=\count187
+\makeMPintoPDFobject=\count188
+\everyMPtoPDFconversion=\toks52
+)
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/oberdiek/epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/oberdiek/grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/caption/ltcaption.sty"
+Package: ltcaption 2018/08/26 v1.4-95 longtable captions (AR)
+)
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count189
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 500.484pt, 56.9055pt)
+* v-part:(T,H,B)=(42.67912pt, 695.38536pt, 56.9055pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=500.484pt
+* \textheight=695.38536pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-66.59087pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=56.9055pt
+* \marginparsep=11.0pt
+* \columnsep=17.07182pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+ABD: EveryShipout initializing macros
+\symgns@font=\mathgroup7
+LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
+(Font)                  TS1/cmr/m/n --> TS1/cmr/bx/n on input line 2.
+Package gensymb Info: Math companion symbols declared on input line 2.
+LaTeX Info: Redefining \degree on input line 2.
+LaTeX Info: Redefining \celsius on input line 2.
+Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
+erthousand on input line 2.
+LaTeX Info: Redefining \ohm on input line 2.
+Package gensymb Info: Using \textohm for \ohm on input line 2.
+Package gensymb Info: Using \textmu for \micro on input line 2.
+\AtBeginShipoutBox=\box62
+Package hyperref Info: Link coloring OFF on input line 2.
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/hyperref/nameref.sty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/ge
+neric/oberdiek/gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count190
+)
+LaTeX Info: Redefining \ref on input line 2.
+LaTeX Info: Redefining \pageref on input line 2.
+LaTeX Info: Redefining \nameref on input line 2.
+\@outlinefile=\write5
+\openout5 = `ej5.out'.
+
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/oberdiek/pdflscape.sty"
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/graphics/lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
+ick labels; missing features). Consider writing \pgfplotsset{compat=1.16} into 
+your preamble.
+ on input line 2.
+
+
+LaTeX Warning: Reference `fig:Diagrama-conceptual-del' on page 1 undefined on i
+nput line 21.
+
+<imagenes/Karplus-strong-schematic.png, id=30, 1041.8925pt x 385.44pt>
+File: imagenes/Karplus-strong-schematic.png Graphic file (type png)
+<use imagenes/Karplus-strong-schematic.png>
+Package pdftex.def Info: imagenes/Karplus-strong-schematic.png  used on input l
+ine 24.
+(pdftex.def)             Requested size: 156.27713pt x 57.81349pt.
+
+LaTeX Warning: Reference `fig:Diagrama-conceptual-del' on page 1 undefined on i
+nput line 33.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 38.
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/amsfonts/umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 38.
+
+("/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/tex/la
+tex/amsfonts/umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \hbox (25.349pt too wide) in paragraph at lines 84--86
+[]\OT1/cmr/m/n/10 Para el modelo clasico, se puede obtener la funcion transfe
+rencia Z mediante relaciones de recursion, obteniendose: 
+ []
+
+[1
+
+{/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/data/pdftex/con
+fig/pdftex.map} <./imagenes/Karplus-strong-schematic.png>]
+Overfull \hbox (7.03928pt too wide) in paragraph at lines 118--120
+[]\OT1/cmr/m/n/10 Sabiendo que $\OML/cmm/m/it/10 H\OT1/cmr/m/n/10 (\OML/cmm/m/i
+t/10 j!\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 H\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
+z \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;$ \O
+T1/cmr/m/n/10 podemos expresar las funciones de ganancia y fase de la siguiente
+ manera: 
+ []
+
+[2] [3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 195.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 195.
+ (ej5.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 195.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 195.
+
+
+Package rerunfilecheck Warning: File `ej5.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `ej5.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  41DE2C3BC162E2C2492BE382D247C79D;852.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 41177 strings out of 494865
+ 1009294 string characters out of 3176149
+ 1349923 words of memory out of 3000000
+ 44109 multiletter control sequences out of 15000+200000
+ 8719 words of font info for 33 fonts, out of 3000000 for 9000
+ 0 hyphenation exceptions out of 8191
+ 84i,13n,102p,769b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ </Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/data/fonts/p
+k/ljfour/jknappen/ec/dpi600/tcrm0700.pk> </Users/santiagobualo/Library/Applicat
+ion Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk><
+/Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/fonts/ty
+pe1/public/amsfonts/cm/cmbx10.pfb></Users/santiagobualo/Library/Application Sup
+port/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/sa
+ntiagobualo/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/publi
+c/amsfonts/cm/cmex10.pfb></Users/santiagobualo/Library/Application Support/MiKT
+eX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/santiagobua
+lo/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfont
+s/cm/cmmi5.pfb></Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/
+install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/santiagobualo/Library/
+Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.
+pfb></Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/install/fon
+ts/type1/public/amsfonts/cm/cmr5.pfb></Users/santiagobualo/Library/Application 
+Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/s
+antiagobualo/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></Users/santiagobualo/Library/Application Support/MiK
+TeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb></Users/santiagobua
+lo/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfont
+s/cm/cmsy7.pfb></Users/santiagobualo/Library/Application Support/MiKTeX/texmfs/
+install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on ej5.pdf (3 pages, 176438 bytes).
+PDF statistics:
+ 126 PDF objects out of 1000 (max. 8388607)
+ 16 named destinations out of 1000 (max. 500000)
+ 114 words of extra memory for PDF output out of 10000 (max. 10000000)
+
