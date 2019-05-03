@@ -26,18 +26,24 @@ void FFT_calculator::fft_init()
 	}
 }
 
-void FFT_calculator::fft(std::vector<std::complex<float>>& in, std::vector<std::complex<float>>& out, bool inverse)
+void FFT_calculator::fft(std::vector<std::complex<float>>& in_, std::vector<std::complex<float>>& out_, bool inverse)
 {	
-    if( &out != &in)
-        out = in;
+    if( &out_ != &in_)
+        out_ = in_;
 
-	if( in.size() < 2) { return; } // Si no hay minimo dos muestras, no hay nada mas que hacer.
 
-	int logn = (int)log2(in.size()); // Se pasa por el logaritmo y se trunca para asegurar que se trabaja con una potencia de 2
+	if( in_.size() < 2) { return; } // Si no hay minimo dos muestras, no hay nada mas que hacer.
+
+	int logn = (int)log2(in_.size()); // Se pasa por el logaritmo y se trunca para asegurar que se trabaja con una potencia de 2
 	if(logn > LOG_N_FFT_MAX) { logn = LOG_N_FFT_MAX; } // Si hay mas muestras, truncar al maximo admitido.
 
 	// N: cantidad de muestras que se analizan
 	int N = 1 << logn;
+
+	out_.reserve(N);
+
+	complex<float> * in = in_.data();
+	complex<float> * out = out_.data();
 
 #ifdef DEBUG_FFT
 	cout << endl << endl << "Entrada:" << endl;
