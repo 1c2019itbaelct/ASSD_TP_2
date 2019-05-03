@@ -1,3 +1,110 @@
 \documentclass[../ASSD_TP2.tex]{subfiles}
 \begin{document}
+
+\section*{Efectos en tiempo real}
+\subsubsection*{Eco simple}
+\subsubsection*{Eco plano}
+\subsubsection*{Eco convolucion}
+Esto efecto fue implementado en frecuencia mediante el siguiente algoritmo:
+
+\begin{enumerate}
+	\item Se toma una ventana de Hanning con superposic\'on 50\% con la ventana anterior.
+	\item Se calcula la FFT.
+	\item Se multiplica cada frecuencia $f_i$ del espectro por la respuesta en frecuencia evaluada en $f_i$.
+	\item Se calcula la IFFT.
+	\item Se repite para la ventana siguiente.
+\end{enumerate}
+
+Se obtuvieron respuestas al impulso de diferentes salas dentro de una universidad\footnote{Obtenidas de la base de datos en http://ikspub.iks.rwth-aachen.de/pdfs/jeub09a.pdf} y de una f\'abrica, se calcularon sus FFT en \textit{MATLAB}\footnote{No se realiz\'o con la funci\'on del punto 1 porque $N$ era mayor a $N_{max} = 4096$} y luego se guardaron en un archivo de datos. Al iniciar este efecto, se carga el archivo correspondiente a la sala deseada.
+
+
+Se escuch\'o una diferencia en el volumen en diferentes salas, lo cual se atribuye a que las grabaciones de respuesta al impulso no est\'an normalizadas en amplitud entre ellas.
+
+\subsubsection*{Vibrato}
+El vibrato es una variaci\'on peri\'odica en la frecuencia de una se\~nal .Una variaci\'on del delay temporal causa una variaci\'on en la frecuencia, por lo que una variaci\'on peri\'odica en frecuencia puede ser emulada variando peri\'odicamente el delay temporal. De ah\'i se obtiene la siguiente ecuaci\'on:
+
+\begin{center}
+	\code{y[n] = x[n - D(n)]}, con \code{D(n) = (1 + delay + range*(2*pi*n*f/fs))}
+\end{center}
+
+donde 
+\begin{itemize}
+	\item \code{f} es la frecuencia del vibrato.
+	\item \code{delay} es el valor medio del time delay.
+	\item \code{range} es la amplitud del time delay.
+	
+\end{itemize}
+
+A diferencia del flanger, \code{y[n]} no depende de \code{x[n]}. Se suele usar con frecuencias similares a la frecuencia de vibrato natural de la voz, por lo que se eligi\'o \code{f}=5.
+
+\subsubsection*{Flanger}
+El flanger es similar al vibrato. Sea \code{yVibrato[n]} la salida de una se\~nal a la que se le aplico el efecto vibrato, la salida de un efecto flanger es:
+\begin{center}
+	\code{y[n] = x[n] + yVibrato[n]}
+\end{center}
+
+\subsubsection*{Robot}
+Para realizar el efecto del robot, se siguen los siguientes pasos:
+\begin{enumerate}
+	\item Se toma una ventana de Hanning con superposic\'on 50\% con la ventana anterior.
+	\item Se calcula la FFT.
+	\item Se fuerza la fase del espectro a cero manteniendo su m\'odulo.
+	\item Se calcula la IFFT.
+	\item Se repite para la ventana siguiente.
+\end{enumerate}
+
+
+\textit{An\'alisis ventana Hanning}\par
+Sea $N$ la longitud de la ventana ($N$ par). La ventana de hanning es 
+\begin{equation}
+w(n) = 0.5 - 0.5\cdot cos\left(\frac{2\pi n}{N-1}\right) = sen^2\left( \frac{\pi n}{N-1}\right) \quad \forall n\in[0; N-1]
+\end{equation}
+Si se utiliza un \textit{overlap} de 50\%, la suma de dos ventanas consecutivas es
+\begin{equation}
+w(n) + w\left(n+\frac{N}{2}\right) = sen^2\left( \frac{\pi n}{N-1}\right)  + sen^2\left( \frac{\pi \left(n + \frac{N}{2}\right) }{N-1}\right) 
+\end{equation}
+
+Si $N$ es lo suficientemente grande, se puede aproximar $\frac{N}{N-1}\approx 1$ y as\'i reemplazar el segundo seno por un coseno:
+
+\[w(n) + w\left(n+\frac{N}{2}\right) = sen^2\left( \frac{\pi n}{N-1}\right)  + sen^2\left( \frac{\pi n}{N-1} + \frac{\pi}{2}\cdot \frac{N}{N-1}\right) \]
+\begin{equation}
+\approx sen^2\left( \frac{\pi n}{N-1}\right)  + sen^2\left( \frac{\pi n}{N-1} + \frac{\pi}{2} \right) = sen^2\left( \frac{\pi n}{N-1}\right) + cos^2\left( \frac{\pi n}{N-1}\right) = 1
+\end{equation}
+
+\textit{Elecci\'on longitud de ventana y frecuencia de muestreos}
+
+El efecto de robotizaci\'on produce un pulso de frecuencia fija, lo cual se escucha como un tono de voz (o frecuencia fundamental $f_{robot}$) constante. Esta frecuencia es $f_{robot} = \frac{f_s}{N}$. Se muestran a continuaci\'on los valores de $f_{robot}$ para diferentes $N$:
+\begin{center}
+	\begin{tabular}{|c|c|}
+	\hline 
+	$N$ & $f_{robot}$ si $f_s = 44100Hz$ \\ 
+	\hline 
+	4096 & 11Hz \\ 
+	\hline 
+	2048 & 22Hz \\ 
+	\hline 
+	1024 & 43Hz \\ 
+	\hline 
+	512 & 86Hz \\ 
+	\hline 
+	256 & 172Hz \\ 
+	\hline 
+	\end{tabular} 
+\end{center}
+
+Si $N$ es muy grande, $f_{robot}$ no puede ser reproducida claramente por los parlantes de una computadora, por lo que no se escucha el tono constante. Si $N$ es muy chica, se pierden detalles de la se\~nal debido a una menor resoluci\'on espectral y resulta imposible entender la pronunciaci\'on de la voz de robot. Se encontr\'o con punto medio en $N=512$. 
+
+Una vez fijada $N=512$, se vari\'o $f_s$ para escuchar el efecto que tenia en la salida. Se comprob\'o que $f_{robot}$ es directamente proporcional a $f_s$, y para lograr lo que a criterio era el sonido m\'as parecido a un robot, se fij\'o $f_s = 60KHz$. 
+
+
+\begin{center}
+	\begin{tabular}{|c|c|c|}
+	\hline 
+	$N$ & $f_s$ & $f_{robot}$ \\ 
+	\hline 
+	512 & 60KHz & 117Hz \\ 
+	\hline 
+	\end{tabular} 
+\end{center}
+
 \end{document}
