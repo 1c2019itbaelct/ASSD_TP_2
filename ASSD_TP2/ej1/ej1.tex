@@ -1,3 +1,45 @@
 \documentclass[../ASSD_TP2.tex]{subfiles}
 \begin{document}
+\section*{FFT e IFFT}
+
+\subsection*{Diferencia entre FFT e IFFT}\label{ssec:dif_fft_ifft}
+Los dos algoritmos son iguales excepto en dos puntos:
+\begin{itemize}
+	\item La IFFT se normaliza al finalizar y la FFT no.
+	\item Los \textit{twiddle-factors} utilizados para cada mariposa son diferentes (secci\'on \ref{ssec:twiddle}).
+	\end{itemize}
+
+\subsection*{Implementaci\'on del algoritmo}
+Dejando de lado las diferencias mencionadas en la secci\'on anterior, ambos algoritmos tienen la misma estructura:
+\begin{itemize}
+	\item Loop externo que recorre todas las etapas
+	\item Loop interno que recorre todas las mariposas de cada etapa.
+	\item Bit reverse de la secuencia resultante.
+\end{itemize}
+
+\subsection*{Twiddle factors}\label{ssec:twiddle}
+Los \textit{twiddle-factors} $W_N^k = \left( e^{-j\frac{2\pi}{N}} \right)^k$ (donde $N$ es el tama\~no de buffer de entrada) son las ra\'ices $N$-\'esimas de la unidad. 
+Son calculados para $N_{max}=2^{12}$ y  para $k \in (0;\, 2^{12-1})$. 
+Se puede calcular hasta $2^{12-1}$ en vez de $2^{12}$ por la propiedad de simetr\'ia:
+\[W_N^{n+N/2} = -W_N^n\]
+Si $N = 2^m < N_{max}$, se necesita otro grupo de \textit{twiddle-factors}. Esto son: 
+\[ W_{2^{12}}^k = 
+\left( e^{-j\frac{2\pi}{2^{m}}} \right)^k = 
+\left( e^{-j\frac{2\pi}{2^{12}}\cdot 2^{12-m}} \right)^k  =
+\left( e^{-j\frac{2\pi}{N_{max}}} \right)^{\left(k\cdot 2^{12-m}\right)}
+W_{N_{max}}^{\left(k\cdot 2^{12-m}\right)} \]
+
+Estos valores ya fueron calculados en la tabla original, por lo que no se necesita el calculo de ninguna otra tabla para todos los valores posibles de longitud de vector de entrada de la FFT.
+
+La IFFT requiere de los factores:
+\[ \left( e^{j\frac{2\pi}{N}} \right)^k = \left( e^{-j\frac{2\pi}{N}} \right)^{-k} = W_N^{-k}\]Por periodicidad: \[ = W_N^{N-k}\] Por simetr\'ia: \[=-W_N^{N/2-k}\]
+
+Estos factores se encuentran en la tabla calcula originalmente para todos los N, por lo tanto no se necesita calcular nuevos factores para la IFFT.
+
+\subsection*{Bit-reverse}
+Para el algoritmo \textit{bit-reverse}, se utiliz\'o una \textit{LUT} de $2^{12}$ posiciones. Si la FFT es de $2^n$ elementos sus \'indices son de $n$ bits. El m\'aximo valor posible de $ n $ es $n_{max} = 12$. Siendo \code{BRindex} el \textit{bit-reverse} de un \'indice \code{index} de $n$ bits (es decir, de $2^n-1$ de valor m\'aximo), se puede obtener de la siguiente forma:
+\begin{center}
+\code{BRindex = BRLUT[index] >> nmax - n}
+\end{center}
+
 \end{document}
