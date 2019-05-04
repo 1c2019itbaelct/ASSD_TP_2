@@ -40,10 +40,15 @@ def synthesizer(file, frecuency, duration):
     freq_sumator = frecuency - freq[fft_peaks[0][0]] * fs
     fft_peaks = signal.find_peaks(fft_signal_module[:int((len(fft_signal_module) - 1))], 0.01, None,
                                   freq[fft_peaks[0][0]] * fs)  # its peaks
-    print(fft_peaks[0])
-    freq_peaks = np.delete(fft_peaks[0], 0)
-    fft_peaks_new = np.delete(fft_peaks[1]['peak_heights'], 0)
-    print(freq_peaks)
+
+    i=0
+    freq_peaks = fft_peaks[0]
+    fft_peaks_new = fft_peaks[1]['peak_heights']
+    while fft_peaks[1]['peak_heights'][i] < 1:
+        freq_peaks = np.delete(freq_peaks, 0)
+        fft_peaks_new = np.delete(fft_peaks_new, 0)
+        i = i + 1
+
     length = 0
     num = np.arange(0, duration, 1 / fs)
     final_signal = 0
@@ -56,19 +61,19 @@ def synthesizer(file, frecuency, duration):
     final_signal = final_signal / max([max(final_signal), abs(min(final_signal))])  # normalizo la salida
     wavfile.write("sample.wav", fs, final_signal)
 
-    hola, chau = make_fft(final_signal)
+    fft_final, freq_fft_final = make_fft(final_signal)
 
-    plt.xlim(0, 20000)
+    plt.xlim(0, 2000)
     plt.plot(freq * fs, fft_signal_module, 'k')
     plt.scatter(freq[freq_peaks] * fs, fft_peaks_new)
     plt.show()
 
-    plt.xlim(0, 5000)
-    plt.plot(chau * fs, hola, 'k')
+    plt.xlim(0, 2000)
+    plt.plot(freq_fft_final * fs, fft_final, 'k')
     plt.show()
 
     plt.plot(time, sign, 'r')
-    plt.show()
+    # plt.show()
 
     plt.plot(x_new, interpolated)
     plt.show()
@@ -78,4 +83,4 @@ def synthesizer(file, frecuency, duration):
 
 
 if __name__ == "__main__":
-    synthesizer("cello_Cs4_15_mezzo-piano_arco-normal.wav", 440, 2.5)
+    synthesizer("saxophone_Cs4_15_forte_normal.wav", 250, 1.5)

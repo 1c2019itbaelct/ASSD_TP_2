@@ -16,12 +16,12 @@ Esta serie es la ideal, ya que se extiende hasta el infinito, pero para este cas
 Los t\'erminos $a_n$ son los coeficientes de la serie de Fourier, que son los que determinan cual es la amplitud de cada frecuencia.
 Como se puede apreciar, esta señal es infinita en el tiempo, por lo tanto, hay que multiplicarle una funcion que dependa del tiempo, para que deje de serlo. Cada instrumento posee una diferente.
 \begin{align*}
-  S(x) &= \sum_{n=0}^{20.000}a(t)* a_n*sin(2*\pi*n*t + \phi) \\
+  S(x) &= \sum_{n=0}^{20.000}a_1(t)* a_n*sin(2*\pi*n*t + \phi) \\
 \end{align*}
 \subsection*{Aplicaci\'on}
 \subsubsection*{Coeficientes de Fourier}
 Para hallar los coeficientes de la serie de Fourier, hay que aplicarle la trasformada r\'apida de Fourier (FFT) y aplicandole el m\'odulo a este resultado, se obtiene la amplitud que tiene cada frecuencia, esta amplitud es $a_n$.
-Por otra parte, la fase tambien es simple de encontrarla, aunque se llego a la conclusi\'on de que no afecta considerablemente la calidad de sonido, entonces no se utilizo la fase, ya que seria mucho tiempo de procesamiento para el cambio que hace.
+Por otra parte, la fase tambien es simple de encontrarla, aunque se llego a la conclusi\'on de que no afecta considerablemente la calidad de sonido, entonces no se utilizo, ya que seria mucho tiempo de procesamiento para el cambio que hace.
 Para obtener los $a_n$, lo que se hizo fue encontrar los picos de la FFT, porque tomar todos los valores de esta seria muy ineficiente en terminos de tiempo de procesamiento.
 La siguiente figura, muestra la FFT de la señal original, con los picos hallados.
 
@@ -44,9 +44,16 @@ Como se ve en la figura, la envolvente sigue perfectamente a la señal, lo cual 
 
 \subsection*{S\'intesis de los Instrumentos}
 El programa fue realizado en principio para un Cello, pero luego se le fueron cargando otros instrumentos, los cuales tambien funcionaban muy bien. Estos instrumentos fueron, piano, tuba, saxo y violin. La tuba y el cello fueron los intrumentos que mejor sonaron, seguidos por el saxo y el violin.
-El instrumento que peor son\'o fue la guitarra, que la sintesis hecha, no tenia sonido de guitarra.
+
+Un instrumento que tambien se prob\'o, fue la guitarra, pero en este caso, la s\'intesis no funciono y el sonido a la salida no sonaba ni cercano al de leste instrumento.
 
 \subsection*{Conclusi\'on}
-El programa implementado se comport\'o muy bien con los instrumentos mencionados anteriormente, y el tiempo de procesamiento fue muy bueno. Es cierto que posee ciertas limitaciones con respecto a algunos instrumentos, como por ejemplo la guitarra. 
+En un caso que se tuvo problemas, fue con la envolvente, ya que al principio no se habia interpolado, lo que generaba que la señal de salida tuviera picos muy abruptos, lo que generaba distorsi\'on. Esto, sin embargo, fue solucionado.
+
+El programa implementado se comport\'o muy bien con los instrumentos mencionados anteriormente, y el tiempo de procesamiento fue muy bueno.
+
+ Es cierto que posee ciertas limitaciones con respecto a algunos instrumentos, como por ejemplo la guitarra, que este programa no se pudo adaptar a dicho instrumento. Pero en general, se comporto muy bien con la mayoria y en algunos casos, era dif\'icil diferenciar la sintesis del instrumento real.
+ 
+
 
 \end{document}
