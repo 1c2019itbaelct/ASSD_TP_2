@@ -20,6 +20,7 @@ typedef  struct {
     float f;
     float fs;
     int n;
+    float a;
 } flanger_user_data_t;
 
 static int flanger_Callback( const void *inputBuffer, void *outputBuffer,
@@ -61,7 +62,7 @@ static int flanger_Callback( const void *inputBuffer, void *outputBuffer,
                 UD->buff_->push_back(in[i]);
                 sin_ = sin(2 * PI * (UD->n) * ((UD->f) / (UD->fs)));
                 D = (UD->delay_) + ((UD->range_) * sin_);
-                *out++ = in[i] + (*(UD->buff_->end() - 2*( D + 1)));
+                *out++ = in[i] + (UD->a)*(*(UD->buff_->end() - 2*( D + 1)));
                 UD->buff_->pop_front();
             }
             else{
@@ -81,13 +82,14 @@ PaError set_flanger(PaStream*& stream, PaStreamParameters& inputParameters, PaSt
     float s=5;
     float range_=500;
     float delay_=1000;
+    float a=1;
     float f=1/s;
     float fs=SAMPLE_RATE;
     int count_=0;
     int n=0;
     circular_buffer<float> buff_(2*(range_+delay_));
 
-    flanger_user_data_t flanger_user_data = {&buff_, count_, range_, delay_, f, fs,n};
+    flanger_user_data_t flanger_user_data = {&buff_, count_, range_, delay_, f, fs,n, a};
 
 
     err = Pa_OpenStream(

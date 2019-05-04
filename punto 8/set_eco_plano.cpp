@@ -74,8 +74,8 @@ static int eco_plano_Callback( const void *inputBuffer, void *outputBuffer,
 
 PaError set_eco_plano(PaStream*& stream, PaStreamParameters& inputParameters, PaStreamParameters& outputParameters, PaError& err)
 {
-    float a_=0.1;
-    float D_=10000;
+    float a_=0.3;
+    float D_=500;
     int count_=0;
     circular_buffer<float> buff_(2*D_);
     ecoplano_user_data_t ecoplano_user_data = { &buff_,a_, D_, count_};

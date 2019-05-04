@@ -16,21 +16,19 @@ typedef  struct {
     circular_buffer<float>* aux4;
     circular_buffer<float>* buff_in;
     circular_buffer<float>* entrada1_AP;
-    circular_buffer<float>* aux5;
-    circular_buffer<float>* buff_in2;
-    circular_buffer<float>* entrada2_AP;
+
     float a;
     float b;
     float D1;
     float D2;
     float D3;
     float D4;
-    float D5;
+
     int count1;
     int count2;
     int count3;
     int count4;
-    int count5;
+
 } ecocompleto_user_data_t;
 
 static int eco_completo_Callback( const void *inputBuffer, void *outputBuffer,
@@ -67,18 +65,17 @@ static int eco_completo_Callback( const void *inputBuffer, void *outputBuffer,
         {
             if(UD->count4>=1)
             {
-
+                //entrada de allpass1 == salida de la sumatoria de reverb planos == (UD->aux1->front())+ (UD->aux2->front())+ (UD->aux3->front());
                 UD->entrada1_AP->push_back((UD->aux1->front())+ (UD->aux2->front())+ (UD->aux3->front()));
-                //UD->entrada2_AP->push_back(UD->aux4->front());
-                //entrada de allpass1 -> (UD->aux1->front())+ (UD->aux2->front())+ (UD->aux3->front()); //sumatoria de combs
-                // entrada allpas2  -> UD->aux4->front();
-                //(*out++) =UD->aux5->front();
+                //salida total = salida del allpass1
                 (*out++) =UD->aux4->front();
                 UD->aux1->pop_front();
                 UD->aux2->pop_front();
                 UD->aux3->pop_front();
                 UD->aux4->pop_front();
             }
+            ///////////////////////////////////////////////////////////////////
+            //reverberador plano 1
             if ((UD->count1) >= ((2 * (UD->D1)) / FRAMES_PER_BUFFER))
             {
                     UD->aux1->push_back(in[i] + ((UD->a) * (UD->aux1->front())));
@@ -88,6 +85,8 @@ static int eco_completo_Callback( const void *inputBuffer, void *outputBuffer,
                 UD->aux1->push_back(in[i]);
                 (UD->count1)++;
             }
+            ////////////////////////////////////////////////////////////////
+            //reverberador plano 2
             if ((UD->count2) >= ((2 * (UD->D2)) / FRAMES_PER_BUFFER))
             {
                 UD->aux2->push_back(in[i] + ((UD->a) * (UD->aux2->front())));
@@ -97,6 +96,8 @@ static int eco_completo_Callback( const void *inputBuffer, void *outputBuffer,
                 UD->aux2->push_back(in[i]);
                 (UD->count2)++;
             }
+            ///////////////////////////////////////////////////////////////
+            //reverberador plano 3
             if ((UD->count3) >= ((2 * (UD->D3)) / FRAMES_PER_BUFFER))
             {
                 UD->aux3->push_back(in[i] + ((UD->a) * (UD->aux3->front())));
@@ -123,24 +124,6 @@ static int eco_completo_Callback( const void *inputBuffer, void *outputBuffer,
                 UD->entrada1_AP->pop_front();
                 (UD->count4)++;
             }
-            //allpass2
-            /*
-            if((UD->count5)>=((2*(UD->D5))/FRAMES_PER_BUFFER))
-            {
-                UD->aux5->push_back( ((UD->b) * (UD->aux5->front())) - ((UD->b) * UD->entrada2_AP->front()) + (UD->buff_in2->front()) );
-                UD->buff_in2->pop_front();
-                UD->buff_in2->push_back(UD->entrada2_AP->front());
-                UD->entrada2_AP->pop_front();
-
-            }
-            else
-            {
-                UD->aux5->push_back( UD->entrada2_AP->front() );
-                UD->buff_in2->push_back(UD->entrada2_AP->front());
-                UD->entrada2_AP->pop_front();
-                (UD->count5)++;
-            }
-             */
         }
 }
 
@@ -159,13 +142,13 @@ PaError set_eco_completo(PaStream*& stream, PaStreamParameters& inputParameters,
     float D1_=5000; // combs en paralelo
     float D2_=5500;
     float D3_=5900;
-    float D4_=1000; // allpass en serie
-    float D5_=1000;
+    float D4_=6000; // allpass en serie
+
     int count1_=0;
     int count2_=0;
     int count3_=0;
     int count4_=0;
-    int count5_=0;
+
 
     circular_buffer<float> aux1_(2*D1_);
     circular_buffer<float> aux2_(2*D2_);
@@ -173,16 +156,10 @@ PaError set_eco_completo(PaStream*& stream, PaStreamParameters& inputParameters,
     circular_buffer<float> aux4_(2*D4_);
     circular_buffer<float> buff_in(2*D4_);
     circular_buffer<float> entrada1_AP(2*D4_);
-    circular_buffer<float> aux5_(2*D4_);
-    circular_buffer<float> buff_in2(2*D4_);
-    circular_buffer<float> entrada2_AP(2*D4_);
 
 
-    ecocompleto_user_data_t ecocompleto_user_data = { &aux1_,&aux2_,&aux3_, &aux4_,&aux5_,
-                                                      &buff_in,&buff_in2, &entrada1_AP,&entrada2_AP,
-                                                      a_, b_,
-                                                      D1_, D2_, D3_, D4_ , D5_,
-                                                      count1_, count2_, count3_, count4_, count5_ };
+
+    ecocompleto_user_data_t ecocompleto_user_data = { &aux1_,&aux2_,&aux3_, &aux4_, &buff_in, &entrada1_AP,a_, b_, D1_, D2_, D3_, D4_ ,count1_, count2_, count3_, count4_ };
     err = Pa_OpenStream(
             &stream,
             &inputParameters,

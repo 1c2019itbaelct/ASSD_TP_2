@@ -42,27 +42,19 @@ static int eco_simple_Callback( const void *inputBuffer, void *outputBuffer,
     }
     else
     {
-        if((UD->count)>=((2*(UD->D))/FRAMES_PER_BUFFER))
-        {
-            for( i=0; i<2*framesPerBuffer; i++ )
-            {
-                *out++= in[i]+ ((UD->a) * (UD->buff_->front()));
-                UD->buff_->pop_front();
+            if ((UD->count) >= (2* ((UD->D)) / FRAMES_PER_BUFFER)) {
+                for (i = 0; i < 2 * framesPerBuffer; i++) {
+                    *out++ = in[i] + ((UD->a) * (UD->buff_->front()));
+                    UD->buff_->pop_front();
+                    UD->buff_->push_back(in[i]);
+                }
+            } else {
+                for (i = 0; i < 2 * framesPerBuffer; i++) {
+                    *out++ = in[i];
+                    UD->buff_->push_back(in[i]);
+                    (UD->count)++;
+                }
             }
-            for( i=0; i<2*framesPerBuffer; i++ )
-            {
-                UD->buff_->push_back(in[i]);
-            }
-        }
-        else
-        {
-            for( i=0; i<2*framesPerBuffer; i++ )
-            {
-                *out++= in[i];
-                UD->buff_->push_back(in[i]);
-            }
-            (UD->count)++;
-        }
     }
     return paContinue;
 }
@@ -71,7 +63,7 @@ static int eco_simple_Callback( const void *inputBuffer, void *outputBuffer,
 
 PaError set_eco_simple(PaStream*& stream, PaStreamParameters& inputParameters, PaStreamParameters& outputParameters, PaError& err)
 {
-    float a_=0.9;
+    float a_=0.8;
     float D_=10000;
     int count_=0;
     circular_buffer<float> buff_(2*D_);
